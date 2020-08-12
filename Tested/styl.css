@@ -47,7 +47,7 @@
 }
 
 .courses {
-    background-color: rgba(106, 13, 192, 0.87);
+    /* background-color: rgba(106, 13, 192, 0.87); */
     height: fit-content;
     display: flex;
     justify-content: space-between;
@@ -56,7 +56,7 @@
 }
 
 .courses h1 {
-    color: white;
+    color: darkorchid;
     margin: 10px;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -72,7 +72,7 @@
 .Machine {
     width: 90vw;
     height: 50vh;
-    background-color: rgba(89, 37, 148, 0.5);
+    background-color: rgba(204, 31, 181, 0.5);
     margin: 5vh;
     border-radius: 10px;
 }
@@ -80,7 +80,7 @@
 .web {
     width: 90vw;
     height: 50vh;
-    background-color: rgba(89, 37, 148, 0.5);
+    background-color: rgba(22, 161, 68, 0.5);
     margin: 5vh;
     border-radius: 10px;
 }
@@ -88,7 +88,7 @@
 .Graphics {
     width: 90vw;
     height: 50vh;
-    background-color: rgba(89, 37, 148, 0.5);
+    background-color: rgb(93, 9, 126);
     margin: 5vh;
     border-radius: 10px;
 }
