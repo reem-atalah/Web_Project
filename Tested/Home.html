@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./styl.css">
     <link rel="stylesheet" href="./animate.css">
     <link rel="icon" href="logo7-removebg-preview.png">
@@ -11,11 +12,33 @@
 </head>
 
 <body>
+    <nav class="nav_bar">
+        <a href="home.html"> <img src="logo7-removebg-preview.png" alt="logo"></a>
+        <div class="nav-contents">
+            <div class="menu">
+                <div class="item" onclick="toggle()">Our Courses</div>
+                <div class="course-list">
+                    <a href="#">Embedded System</a>
+                    <a href="#">Machine Learning</a>
+                    <a href="#">Web Development</a>
+                    <a href="#">3D Graphics Design</a>
+
+                </div>
+            </div>
+            <a href="#">Contact us</a>
+
+        </div>
+        <div class="nav-contents-right">
+            <a href="#">Register</a>
+            <a href="#">Log in</a>
+
+
+
+        </div>
+    </nav>
     <div class="container">
 
-        <nav class="nav_bar">
-            <a href="home.html"> <img src="logo7-removebg-preview.png" alt="logo"></a>
-        </nav>
+
         <div class="sub_container1  wow animate__animated animate__backInLeft">
             <img src="edu_ilastration.png ">
 
@@ -37,7 +60,9 @@
             <img src="Embeded.png">
             <div class="Details  wow animate__animated animate__fadeIn animate__repeat-2">
                 <h1>Embedded System</h1>
-                <p>Details Details Details Details Details Details Details Details Details Details </p>
+                <p>Details Details Details Details Details Details Details Details Details Details </br>
+                    Details Details Details Details Details Details Details Details Details Details</br>
+                    Details Details Details Details Details Details Details Details Details Details</p>
                 <button>View Course</button>
             </div>
 
@@ -46,7 +71,9 @@
             <img src="Machine2.png">
             <div class="Details wow animate__animated animate__fadeInRight animate__repeat-2">
                 <h1>Machine learning</h1>
-                <p>Details Details Details Details Details Details Details Details Details Details </p>
+                <p>Details Details Details Details Details Details Details Details Details Details </br>
+                    Details Details Details Details Details Details Details Details Details Details</br>
+                    Details Details Details Details Details Details Details Details Details Details </p>
                 <button>View Course</button>
             </div>
 
@@ -55,7 +82,9 @@
             <img src="Web.png ">
             <div class="Details wow animate__animated animate__fadeInLeft animate__repeat-2">
                 <h1>Web Development</h1>
-                <p>Details Details Details Details Details Details Details Details Details Details </p>
+                <p>Details Details Details Details Details Details Details Details Details Details</br>
+                    Details Details Details Details Details Details Details Details Details Details</br>
+                    Details Details Details Details Details Details Details Details Details Details </p>
                 <button>View Course</button>
             </div>
 
@@ -64,7 +93,10 @@
             <img src="Graphics.png">
             <div class="Details wow animate__animated animate__fadeIn animate__repeat-2">
                 <h1>3D Graphics</h1>
-                <p>Details Details Details</p>
+                <p>
+                    Details Details Details Details Details Details Details Details Details Details </br>
+                    Details Details Details Details Details Details Details Details Details Details</br>
+                    Details Details Details Details Details Details Details Details Details Details</p>
                 <button>View Course</button>
             </div>
 
@@ -81,6 +113,7 @@
         </div>
         <h4>Copyright © 2020 C-Craft | All Rights Reserved. | </h4>
     </footer>
+    <script src="Home.js"></script>
     <script src="./wow.min.js "></script>
     <script>
         new WOW().init();

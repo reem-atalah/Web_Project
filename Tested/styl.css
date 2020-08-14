@@ -10,6 +10,92 @@
     width: 100vw;
     background-image: url(bradcam.png);
     z-index: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-contents-right {
+    position: relative;
+    width: 20vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-contents-right a {
+    color: #f9f9f9;
+    text-decoration: none;
+    margin: 0px 20px 0px 0px;
+    font-size: 1.3rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-contents-right a:hover {
+    color: rgb(0, 0, 0, 0.3);
+}
+
+.nav-contents {
+    position: relative;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-contents a {
+    margin: 0px 5px 0px 20px;
+    text-decoration: none;
+    color: #f9f9f9;
+    font-size: 1.3rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-contents a:hover {
+    color: rgb(0, 0, 0, 0.3);
+}
+
+.menu {
+    cursor: pointer;
+    color: #f9f9f9;
+    font-size: 1.3rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* .item {
+    cursor: pointer;
+} */
+
+.item:hover {
+    color: rgb(0, 0, 0, 0.3);
+}
+
+.course-list {
+    position: absolute;
+    display: none;
+    padding: 15px 10px 15px 10px;
+    color: #000000;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    width: fit-content;
+    height: fit-content;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+}
+
+.course-list a {
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0, 0.8);
+    margin: 5px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.course-list a:hover {
+    padding: 5px 5px 5px 5px;
+    background-color: rgb(83, 44, 83, 0.5);
+    border-radius: 5px;
 }
 
 .nav_bar img {
@@ -119,7 +205,7 @@
 }
 
 .Details button {
-    padding: 5px 5px 5px 5px;
+    padding: 10px 10px 10px 10px;
     margin: 10px;
     background-color: rgb(93, 9, 126);
     color: white;
