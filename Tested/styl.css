@@ -217,6 +217,10 @@
     border: none;
 }
 
+.Details button:hover {
+    background-color: rgb(93, 9, 126, 0.7);
+}
+
 .web {
     margin: 5vh;
     padding: 20px 50px;
