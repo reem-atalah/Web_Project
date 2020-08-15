@@ -117,26 +117,27 @@
     height: 50%;
 }
 
-.body-content {
+.cover-content {
     width: 50vw;
     color: white;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.body-content h1 {
+.cover-content h1 {
     font-size: 1.75rem;
-    text-shadow: 2px 2px rgba(138, 44, 226, 0.2);
+    text-shadow: 2px 2px hsl(271, 76%, 53%, 20%);
 }
 
-.body-contentt p {
+.cover-content p {
     font-size: 1.2rem;
 }
 
 .courses {
     /* background-color: rgba(106, 13, 192, 0.87); */
     /* background-color: rgba(217, 187, 245, 0.5); */
-    background-color: rgb(93, 9, 126);
+    /* background-color: rgb(93, 9, 126); */
+    background-color: rgb(118, 117, 119);
     height: fit-content;
     display: flex;
     align-items: center;
@@ -207,7 +208,8 @@
 .Details button {
     padding: 10px 10px 10px 10px;
     margin: 10px;
-    background-color: rgb(93, 9, 126);
+    /* background-color: rgb(93, 9, 126); */
+    background-image: url("footer_bg.png");
     color: white;
     font-size: 1.2rem;
     text-align: center;
@@ -218,7 +220,8 @@
 }
 
 .Details button:hover {
-    background-color: rgb(93, 9, 126, 0.7);
+    /* background-color: rgb(93, 9, 126, 0.7); */
+    background-image: url("footer_bg.png");
 }
 
 .web {
@@ -261,7 +264,6 @@
 }
 
 .footer {
-    bottom: 0;
     padding: 20px;
     text-align: center;
     height: 30vh;
@@ -271,7 +273,9 @@
     align-items: center;
     flex-direction: column;
 }
-
+h3{
+    color: white;
+}
 .contact-links {
     width: fit-content;
     height: fit-content;
