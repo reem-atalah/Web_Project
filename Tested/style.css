@@ -117,19 +117,19 @@
     height: 50%;
 }
 
-.cover-content {
+.body-content {
     width: 50vw;
     color: white;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.cover-content h1 {
+.body-content h1 {
     font-size: 1.75rem;
-    text-shadow: 2px 2px hsl(271, 76%, 53%, 20%);
+    text-shadow: 2px 2px rgba(138, 44, 226, 0.2);
 }
 
-.cover-content p {
+.body-contentt p {
     font-size: 1.2rem;
 }
 
@@ -261,6 +261,7 @@
 }
 
 .footer {
+    bottom: 0;
     padding: 20px;
     text-align: center;
     height: 30vh;
