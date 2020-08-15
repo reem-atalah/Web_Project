@@ -24,7 +24,7 @@
 }
 
 .nav-contents-right a {
-    color: #f9f9f9;
+    color: #aaa;
     text-decoration: none;
     margin: 0px 20px 0px 0px;
     font-size: 1.3rem;
@@ -46,7 +46,7 @@
 .nav-contents a {
     margin: 0px 5px 0px 20px;
     text-decoration: none;
-    color: #f9f9f9;
+    color: #aaa;
     font-size: 1.3rem;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -57,7 +57,7 @@
 
 .menu {
     cursor: pointer;
-    color: #f9f9f9;
+    color: #aaa;
     font-size: 1.3rem;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -265,7 +265,7 @@
 }
 
 .footer {
-    color: white;
+    color: #aaa;
     font-size: 0.8rem;
     padding: 20px;
     text-align: center;
