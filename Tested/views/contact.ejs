@@ -1,0 +1,17 @@
+<%- include("layouts/header") %>
+
+<div class="cont-container">
+  <div class="cont">
+    <h2>Contact Us</h2>
+    <form class="contact_form"  method="POST">
+        
+        <input type="text" id="N"placeholder="Your Name" value="" required ><br><br>
+        <input type="text" id="Email"placeholder="Email" value=""required> <br><br>
+        <input type="text" id="Sub" placeholder="Subject"value=""required> <br><br>
+        <textarea id="message" rows="9" cols="32" placeholder="Please leave your message here." required></textarea> <br><br>
+        <button type="submit">Submit</button> <br>
+        </form>
+  </div>
+</div>
+<script src="../public/js/contactJS.js"></script>
+    <%- include("layouts/footer") %>
