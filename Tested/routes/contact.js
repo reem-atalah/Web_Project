@@ -50,6 +50,7 @@ router.post('/', (req,res)=>{
         console.log(error);
     } else {
         console.log('Email sent: ' + info.response);
+        req.flash("sucess","Message has sent");
     }
     });
     res.redirect('/confirmation');

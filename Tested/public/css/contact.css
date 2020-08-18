@@ -157,14 +157,22 @@ textarea:hover{
 }
 
 button{
-  width: 100px; background-color: rgb(102, 0, 128); color: white; padding: 15px; padding-bottom: 30px;
-    border: 2px solid rgb(102, 0, 128); border-radius: 10px; height: 30px; font-size: 16.5px; margin-left: 8px;
+  width: 100px;
+  background-color: rgb(165, 30, 255);
+  color: white;
+   padding: 15px;
+    padding-bottom: 30px;
+    border: 2px solid rgb(165, 30, 255);
+     border-radius: 4px; 
+     height: 30px;
+      font-size: 16.5px; 
+      margin-left: 8px;
     outline: none;
     cursor: pointer;
     transition: 0.3s;
 }
 button:hover{
-    color: rgb(102, 0, 128);
+    color:  rgb(165, 30, 255);
     background-color: white;
     border: 2px solid white;
 }
