@@ -254,6 +254,14 @@ input:focus {
     background-color: white;
 }
 
+small {
+    color: #aaa;
+}
+
+small a {
+    color: rgb(165, 30, 255);
+}
+
 .contact-links i {
     padding: 25px;
     padding-top: 0;
@@ -264,7 +272,4 @@ input:focus {
 
 .contact-links i:hover {
     color: rgb(116, 12, 185);
-}
-a{
-    color:rgb(165, 30, 255);
 }
