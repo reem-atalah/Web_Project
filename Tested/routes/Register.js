@@ -26,6 +26,7 @@ router.post('/', [
     const Email = req.body.email;
     const pass = req.body.password;
     const conf_pass = req.body.confirm_password;
+    const gend=req.body.genderList;
  
     //will get Array of errors
     const errors = validationResult(req).errors; //instead of req.validationErrors().errors
@@ -36,7 +37,8 @@ router.post('/', [
           css: "Register",
           errors: errors, //first errors in template (ejs), second errors in if condition in line 52
           username: userName,
-          email: Email
+          email: Email,
+          genderList: gend
       })
   }
   
@@ -45,37 +47,33 @@ router.post('/', [
   
       if (user) {
         req.flash('danger', 'Username is arleady taken')//danger to make the message red
-        return res.render('register', {
+        return res.render('Register', {
           title: "Register",
-          css: "style",
-          errors: errors, //first errors in template (ejs), second errors in if condition in line 52
-          firstname: firstName,
-          lastname: lastName,
-          username: userName,
-          email: Email
-      })
-      }
+          css: "Register",
+          errors: errors, 
+          email: Email,
+          genderList: gend
+      });
+      };
   
       user = await User.findOne({ email: Email });
   
           if (user) {
               req.flash('danger', 'Email is already registered');
-              return res.render('register', {
+              return res.render('Register', {
                 title: "Register",
-                css: "style",
-                errors: errors, //first errors in template (ejs), second errors in if condition in line 52
-                firstname: firstName,
-                lastname: lastName,
+                css: "Register",
+                errors: errors, 
                 username: userName,
-                email: Email
-            })
+                genderList: gend
+              })
           }
   
       user = new User({
-        name: firstName + " " + lastName,
         username: userName,
         email: Email,
-        password: pass
+        password: pass,
+        gender: gend
       });
       user = await user.save();
     //   console.log('User Created: \n ${user.userName}');
@@ -87,7 +85,7 @@ router.post('/', [
           user = await user.save();
   
           req.flash('success', 'You registered successfully');//success for green alert ^_^
-          res.redirect('/log_in');
+          res.redirect('/login');
     } 
     catch (err) {
       return console.log(err);

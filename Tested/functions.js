@@ -5,7 +5,7 @@ checkAuthenticated= (req,res,next)=>{
         
     }
     req.flash('primary','You must log in first')
-    res.redirect('/log_in')
+    res.redirect('/login')
 };
 
 checkNotAuthenticated= (req,res,next)=>{

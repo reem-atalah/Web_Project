@@ -8,18 +8,39 @@ const User = require('./models/User');
 const override=require('method-override');
 const nodemailer=require('nodemailer');
 const cron=require("node-cron");
-// const checkFunc=require('./checkFunc');
-// const pass_conf=require('./passport-config');
+const checkFunc=require('./functions');
+const pass_conf=require('./passport-config');
 const app = express();
 const port = 8080;
 
 
-mongoose.connect('mongodb://localhost/session10', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost/student_activity', { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error: '));
 db.once('open', () => {
     console.log('connected to DB');
 });
+
+//Authentication
+pass_conf.initialize(passport); 
+app.use(passport.initialize());
+app.use(passport.session());
+
+//flash messages middleware
+app.use(require('connect-flash')());
+app.use((req, res, next) => {
+    res.locals.messages = require('express-messages')(req, res);
+    next();
+});
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json()); 
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+}));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -38,6 +59,7 @@ app.use('/Register', require('./routes/Register'));
 app.use('/login', require('./routes/login'));
 app.use('/contact', require('./routes/contact'));
 app.use('/confirmation', require('./routes/confirmation'));
+app.use('/user-profile', require('./routes/user-profile'));
 
 app.listen(port, err => {
     if (err) return console.log(err);

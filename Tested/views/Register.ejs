@@ -2,7 +2,18 @@
 
         <div class="Reg-container">
             <div class="reg">
-                <form class="form" autocomplete="off">
+                <form class="form"  method="POST">
+                    <%- messages('partials/messages',locals) %>
+                    <%if(typeof errors !== "undefined") { %>
+                    <% errors.forEach(error => { %>
+                    <div class="alert alert-<%= type %> alert-dismissible fade show" role="alert">
+                        <%= error.msg %>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div> 
+                    <% }); %>
+                    <% } %>
                     <h2>Sign Up</h2>
                     <div class="username-div">
                         <input id="username" type="text" name="username"  autocomplete="off"><br>
@@ -28,7 +39,7 @@
                             <span class="span_confpass">Confirm Password</span>
                         </label><br>
                     </div>
-                        <select id="genderList" onchange="toggle_gender()">
+                        <select name="genderList" id="genderList" onchange="toggle_gender()">
                             <option>Gender</option>
                             <option>Male</option>
                             <option>Female</option>
