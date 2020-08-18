@@ -33,6 +33,17 @@ app.use((req, res, next) => {
     next();
 });
 
+//logOut
+app.use(override('_method'));
+app.delete('/logout',checkFunc.checkAuth,(req,res)=>{
+    req.logOut();
+    req.flash('secondary', 'You have logged out successfully');
+    res.render('home', {
+        title: 'Home',
+        css: 'home'
+    })
+})
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()); 

@@ -8,8 +8,12 @@ const emailCheck = require('email-check');
 router.get('/',checkFunc.checkNotAuth, (req, res) => {
     res.render('Register', {
         title: 'Register',
-        css: 'Register'
-    })
+        css: 'Register',
+        RegisterOrProfileLink: 'Register',
+        RegisterOrProfile: 'Register',
+        loginOrOut: 'login',
+        log:'Log In'
+      })
 });
 
 router.post('/', [

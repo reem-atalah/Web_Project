@@ -4,7 +4,7 @@
         <div class="Log-container">
 
             <div class="log">
-                <form action="">
+                <form method="POST">
                     <%- messages('partials/messages',locals) %>
                     <%if(typeof errors !== "undefined") { %>
                     <% errors.forEach(error => { %>
@@ -29,7 +29,7 @@
                         <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
                         <!-- </label> -->
                     </div>
-                    <button type="submit">Log in </button><br>
+                    <button id="btn" type="submit">Log in </button><br>
                     <small>Don't have an account?
                     <a href="Register">Register</a>
                 </small>

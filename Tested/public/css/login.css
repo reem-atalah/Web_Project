@@ -235,7 +235,7 @@ input:focus {
     background-color: rgb(165, 30, 255);
 }
 
-button {
+#btn {
     margin-left: 70px;
     margin-bottom: 20px;
     margin-top: 10px;
@@ -249,7 +249,7 @@ button {
     transition: 0.3s;
 }
 
-button:hover {
+#btn:hover {
     color: rgb(165, 30, 255);
     background-color: white;
 }

@@ -7,7 +7,7 @@ initialize = (passport) => {
     const authenticateUser = async (username, password, done) => {
         try {
             const user = await User.findOne({ username: username });
-           
+            console.log(user);
             if (!user) {
                 return done(null, false, { message: 'No user with this user name' })
             }
@@ -29,6 +29,7 @@ initialize = (passport) => {
     passport.deserializeUser((id, done) => {
         User.findById(id, (err, user) => {
             done(err, user);
+            console.log(user);
         })
     })
 

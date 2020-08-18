@@ -17,3 +17,6 @@ function scrol(){
     $('html').niceScroll();
     console.log('hi');
 }
+
+const checkFunc=require('./functions');
+

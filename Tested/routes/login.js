@@ -5,13 +5,17 @@ const checkFunc=require('../functions');
 router.get('/',checkFunc.checkNotAuth, (req, res) => {
     res.render('login', {
         title: 'Log In',
-        css: 'login'
+        css: 'login',
+        RegisterOrProfileLink: 'Register',
+        RegisterOrProfile: 'Register',
+        loginOrOut: 'login',
+        log:'Log In'
     })
 });
 
 router.post('/', passport.authenticate('local', {
-    successRedirect: '/user-profile',
-    failureRedirect: '/login',
+    successRedirect: '/contact',
+    failureRedirect: '/Home',
     failureFlash: true
 }));
 

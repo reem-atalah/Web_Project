@@ -1,10 +1,15 @@
 const router = require('express').Router();
 const checkFunc=require("../functions");
 
-router.get('/',checkFunc.checkNotAuth, (req, res) => {
-    res.render('user-progile', {
-        title: 'user-progile',
-        css: 'user-progile'
+router.get('/',checkFunc.checkAuth, (req, res) => {
+    res.render('user-profile', {
+        title: 'user-profile',
+        css: 'user-profile',
+        header: 'header_out',
+        RegisterOrProfileLink: 'user-profile',
+        RegisterOrProfile: 'Your Profile',
+        loginOrOut: 'logout',
+        log:'Log Out'
     })
 });
 

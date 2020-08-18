@@ -1,11 +1,29 @@
 const router = require('express').Router();
 const nodemailer = require('nodemailer');
+const checkFunc=require('../functions');
 
 router.get('/', (req, res) => {
-    res.render('contact', {
-        title: 'Contact Us',
-        css: 'contact'
-    })
+
+    if(checkFunc.checkNotAuth){
+        res.render('contact', {
+            title: 'Contact Us',
+            css: 'contact',
+            RegisterOrProfileLink: 'Register',
+            RegisterOrProfile: 'Register',
+            loginOrOut: 'login',
+            log:'Log In'
+        })
+    }
+    if(checkFunc.checkAuth){
+        res.render('contact', {
+            title: 'Contact Us',
+            css: 'contact',
+            RegisterOrProfileLink: 'user-profile',
+            RegisterOrProfile: 'Your Profile',
+            loginOrOut: 'Home',
+            log:'Log Out'
+        })
+    }
 });
 
 router.post('/', (req,res)=>{

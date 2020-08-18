@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/<%= css %>.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="icon" href="/images/logo7-removebg-preview.png">
     <title><%= title %></title>
 </head>
-
 
 <nav class="nav_bar">
     <a href="Home"> <img src="/images/logo7-removebg-preview.png" alt="logo"></a>
@@ -29,8 +29,8 @@
 
     </div>
     <div class="nav-contents-right">
-        <a href="Register">Register</a>
-        <a href="login">Log in</a>
+        <a href="<%= RegisterOrProfileLink %>"><%=RegisterOrProfile %></a>
+        <a href="<%=loginOrOut %>"><%=log %></a>
     </div>
 </nav>
 
