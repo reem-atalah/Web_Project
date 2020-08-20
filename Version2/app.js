@@ -3,6 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const flush=require('connect-flash');
 const passport = require('passport');
 const User = require('./models/User');
 const override = require('method-override');
@@ -40,7 +41,11 @@ app.delete('/logout', checkFunc.checkAuth, (req, res) => {
     req.flash('secondary', 'You have logged out successfully');
     res.render('home', {
         title: 'Home',
-        css: 'home'
+        css: 'home',
+        RegisterOrProfileLink: 'Register',
+        RegisterOrProfile: 'Register',
+        loginOrOut: 'login',
+        log:'Log In'
     })
 })
 
@@ -53,6 +58,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+app.use(flush());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -60,10 +66,41 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
+    if (checkFunc.checkNotAuth) {
+        res.render('Home', {
+            title: 'Home',
+            css: 'style',
+            RegisterOrProfileLink: 'Register',
+            RegisterOrProfile: 'Register',
+            loginOrOut: 'login',
+            log:'Log In'
+        })
+    }
+    if (checkFunc.checkAuth) {
+        res.render('Home', {
+            title: 'Home',
+            css: 'style',
+            RegisterOrProfileLink: 'user-profile',
+            RegisterOrProfile: 'Your Profile',
+            loginOrOut: 'logout',
+            log:'Log Out'
+        })
+    }
+});
+
+app.use('/deleteAll', async (req, res) => {
+    User.deleteMany({}, err => {
+        if (err) return console.log(err);
+    });
     res.render('Home', {
         title: 'Home',
-        css: 'style'
+        css: 'style',
+        RegisterOrProfileLink: 'Register',
+        RegisterOrProfile: 'Register',
+        loginOrOut: 'login',
+        log:'Log In'
     })
+    // res.redirect('/');
 });
 
 app.use('/Home', require('./routes/Home'));

@@ -6,14 +6,16 @@ const checkFunc=require("../functions");
 const emailCheck = require('email-check');
 
 router.get('/',checkFunc.checkNotAuth, (req, res) => {
-    res.render('Register', {
+    res.render('Register' , {
         title: 'Register',
         css: 'Register',
         RegisterOrProfileLink: 'Register',
         RegisterOrProfile: 'Register',
         loginOrOut: 'login',
-        log:'Log In'
+        log:'Log In',
+        message : req.flash('message')
       })
+      
 });
 
 router.post('/', [
@@ -39,6 +41,11 @@ router.post('/', [
       return res.render('Register', {
           title: "Register",
           css: "Register",
+          RegisterOrProfileLink: 'Register',
+          RegisterOrProfile: 'Register',
+          loginOrOut: 'login',
+          log:'Log In',
+          message : req.flash('message'),
           errors: errors, //first errors in template (ejs), second errors in if condition in line 52
           username: userName,
           email: Email,
@@ -50,10 +57,16 @@ router.post('/', [
       let user = await User.findOne({ username: userName });
   
       if (user) {
-        req.flash('danger', 'Username is arleady taken')//danger to make the message red
+        req.flash('message', 'Username is arleady taken')
+        // req.flash('danger', 'Username is arleady taken')
         return res.render('Register', {
           title: "Register",
           css: "Register",
+          RegisterOrProfileLink: 'Register',
+          RegisterOrProfile: 'Register',
+          loginOrOut: 'login',
+          log:'Log In',
+          message : req.flash('message'),
           errors: errors, 
           email: Email,
           genderList: gend
@@ -67,6 +80,11 @@ router.post('/', [
               return res.render('Register', {
                 title: "Register",
                 css: "Register",
+                RegisterOrProfileLink: 'Register',
+                RegisterOrProfile: 'Register',
+                loginOrOut: 'login',
+                log:'Log In',
+                message : req.flash('message'),
                 errors: errors, 
                 username: userName,
                 genderList: gend
