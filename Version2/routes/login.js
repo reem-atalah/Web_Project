@@ -3,7 +3,7 @@ const passport = require('passport');
 const checkFunc=require('../functions');
 
 router.get('/',checkFunc.checkNotAuth, (req, res) => {
-    res.render('login', {
+    return res.render('login', {
         title: 'Log In',
         css: 'login',
         RegisterOrProfileLink: 'Register',

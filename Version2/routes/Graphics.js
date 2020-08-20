@@ -3,7 +3,7 @@ const checkFunc = require("../functions");
 
 router.get('/', (req, res) => {
     if (checkFunc.checkNotAuth) {
-        res.render('Graphics', {
+        return res.render('Graphics', {
             title: '3D Graphics',
             css: 'Graphics',
             RegisterOrProfileLink: 'Register',
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
         })
     }
     if (checkFunc.checkAuth) {
-        res.render('contact', {
+        return res.render('contact', {
             title: 'Contact Us',
             css: 'contact',
             RegisterOrProfileLink: 'user-profile',

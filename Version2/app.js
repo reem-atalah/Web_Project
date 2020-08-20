@@ -39,7 +39,7 @@ app.use(override('_method'));
 app.delete('/logout', checkFunc.checkAuth, (req, res) => {
     req.logOut();
     req.flash('secondary', 'You have logged out successfully');
-    res.render('home', {
+    return res.render('home', {
         title: 'Home',
         css: 'home',
         RegisterOrProfileLink: 'Register',
@@ -67,7 +67,7 @@ app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
     if (checkFunc.checkNotAuth) {
-        res.render('Home', {
+        return res.render('Home', {
             title: 'Home',
             css: 'style',
             RegisterOrProfileLink: 'Register',
@@ -77,7 +77,7 @@ app.get('/', (req, res) => {
         })
     }
     if (checkFunc.checkAuth) {
-        res.render('Home', {
+        return res.render('Home', {
             title: 'Home',
             css: 'style',
             RegisterOrProfileLink: 'user-profile',
@@ -92,7 +92,7 @@ app.use('/deleteAll', async (req, res) => {
     User.deleteMany({}, err => {
         if (err) return console.log(err);
     });
-    res.render('Home', {
+    return res.render('Home', {
         title: 'Home',
         css: 'style',
         RegisterOrProfileLink: 'Register',
