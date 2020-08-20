@@ -1,0 +1,20 @@
+<%- include("layouts/header") %>
+
+<div class="cont-container">
+  <div class="cont">
+    <%- messages('partials/messages',locals) %>
+    <%if(typeof errors !== "undefined") { %>
+    <% errors.forEach(error => { %>
+    <div class="alert alert-<%= type %> alert-dismissible fade show" role="alert">
+        <%= error.msg %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div> 
+    <% }); %>
+    <% } %>
+    <h1>Thank You for dealing with us !</h1>
+    
+  </div>
+</div>
+    <%- include("layouts/footer") %>

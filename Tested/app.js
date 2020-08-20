@@ -1,15 +1,15 @@
 const express = require('express');
 const path = require('path');
-const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const User = require('./models/User');
-const override=require('method-override');
-const nodemailer=require('nodemailer');
-const cron=require("node-cron");
-const checkFunc=require('./functions');
-const pass_conf=require('./passport-config');
+const override = require('method-override');
+const nodemailer = require('nodemailer');
+const cron = require("node-cron");
+const checkFunc = require('./functions');
+const pass_conf = require('./passport-config');
 const app = express();
 const port = 8080;
 
@@ -22,7 +22,7 @@ db.once('open', () => {
 });
 
 //Authentication
-pass_conf.initialize(passport); 
+pass_conf.initialize(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 
 //logOut
 app.use(override('_method'));
-app.delete('/logout',checkFunc.checkAuth,(req,res)=>{
+app.delete('/logout', checkFunc.checkAuth, (req, res) => {
     req.logOut();
     req.flash('secondary', 'You have logged out successfully');
     res.render('home', {
@@ -46,7 +46,8 @@ app.delete('/logout',checkFunc.checkAuth,(req,res)=>{
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json()); 
+//body-parser middleware
+app.use(bodyParser.json());
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
