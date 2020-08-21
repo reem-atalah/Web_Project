@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/<%= css %>.css" />
+  <title><%= title %></title>
+ <style>
+   input{
+     border: none;
+   }
+ </style> 
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Session 10</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item <% if (title === 'Home') { %>active<% } %>">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item <% if (title === 'Users') { %>active<% } %>">
+            <a class="nav-link" href="users">Users</a>
+          </li>
+          <li class="nav-item <% if (title === 'User Profile') { %>active<% } %>">
+            <a class="nav-link" href="user-profile">User Profile</a>
+          </li>
+        </ul>
+        <div class="my-2 my-lg-0">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item <% if (title === 'Register') { %>active<% } %>">
+              <a class="nav-link" href="register">Sign Up</a>
+            </li>
+            <li class="nav-item <% if (title === 'Log In') { %>active<% } %>">
+              <a class="nav-link" href="log_in">Log In</a>
+            </li>
+            <li class="nav-item <% if (title === 'Log Out')  %>">
+              <form action="/logout?_method=DELETE" method="POST">
+                
+                  <input class="nav-link"  type="submit" value="Log Out"/>
+                                 
+                
+              </form>
+              
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>

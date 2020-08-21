@@ -9,13 +9,15 @@ router.get('/',checkFunc.checkNotAuth, (req, res) => {
         RegisterOrProfileLink: 'Register',
         RegisterOrProfile: 'Register',
         loginOrOut: 'login',
-        log:'Log In'
+        log:'Log In',
+        message : req.flash('message')
+
     })
 });
 
 router.post('/', passport.authenticate('local', {
-    successRedirect: '/contact',
-    failureRedirect: '/Home',
+    successRedirect: '/Home',
+    failureRedirect: '/contact',
     failureFlash: true
 }));
 

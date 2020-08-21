@@ -166,3 +166,33 @@ div{text-align: center;
 .contact-links i:hover {
     color: rgb(116, 12, 185);
 }
+#alerty{
+    background-color: blueviolet;
+    font-size: 18.3px;
+    font-family:Arial, 'Arial Narrow','Franklin Gothic Medium',   sans-serif;
+    flex-direction: row;
+    border-radius: 2px;
+    padding-left: 5px;
+}
+#close {
+    float:right;
+    display:inline-block;
+    padding:2px 5px;
+    background-color: blueviolet;
+    border: none;
+    outline: none;
+    transition: 0.3s;
+}
+#close:hover {
+    float:right;
+    display:inline-block;
+    padding:2px 5px;
+    color:white;
+}
+#msg{
+    background-color: blueviolet;
+    border: none;
+    outline: none;
+    font-size: 17px;
+
+}

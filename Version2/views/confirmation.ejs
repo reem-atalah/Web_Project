@@ -2,7 +2,7 @@
 
 <div class="cont-container">
   <div class="cont">
-    <%- messages('partials/messages',locals) %>
+    <!-- <%- messages('partials/messages',locals) %>
     <%if(typeof errors !== "undefined") { %>
     <% errors.forEach(error => { %>
     <div class="alert alert-<%= type %> alert-dismissible fade show" role="alert">
@@ -12,7 +12,15 @@
         </button>
     </div> 
     <% }); %>
-    <% } %>
+    <% } %> -->
+    <% if(message.length >0){ %>
+      <div id="alerty" class="alert alert-success">
+
+     <button id="msg"><%= message %></button> 
+      <button id='close' onclick='this.parentNode.parentNode.removeChild(this.parentNode); return false;'>x</button>
+  </div><br>
+<% } %>
+
     <h1>Thank You for dealing with us !</h1>
     
   </div>

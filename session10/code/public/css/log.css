@@ -1,0 +1,48 @@
+body {
+    background-image: url("../images/Photography.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+   
+  main {
+    height: 100vh;
+    background-color: rgba(137, 219, 192, 0.3);
+    position: relative;
+  }
+  
+  .sign_up {
+    background-color: #beebe9;
+    position: absolute;
+    padding: 20px;
+    border-radius: 10px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+  }
+  
+  .header {
+    text-align: center;
+  }
+  
+  .sign_up input {
+    background-color: #f4dada;
+    width: 230px;
+    height: 25px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+  }
+  
+  #submit_button {
+    background-color: rgb(127, 255, 212);
+    cursor: pointer;
+    width: 230px;
+    height: 25px;
+    border: none;
+    outline: none;
+    margin-top: 10px;
+  }
+ 

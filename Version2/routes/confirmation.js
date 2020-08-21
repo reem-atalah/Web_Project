@@ -7,7 +7,9 @@ router.get('/', (req, res) => {
         RegisterOrProfileLink: 'user-profile',
         RegisterOrProfile: 'Your Profile',
         loginOrOut: 'Home',
-        log:'Log Out'
+        log:'Log Out',
+        message : req.flash('message')
+
     })
 });
 

@@ -1,0 +1,16 @@
+<%- include('layouts/header') %>
+
+<div class="container">
+  <div class="card">
+    <form action="/users/<%= user.username %>/edit-profile" method="POST">
+    <textarea name="name" class="card-header"> <%= user.name %></textarea>
+    <div class="card-body">
+      <textarea name="job"class="card-title"><%= user.job %> </textarea><br>
+      <textarea name="bio"class="card-text"><%= user.bio %></textarea><br>
+      <button>Apply Changes</button>
+    </form>
+    </div>
+  </div>
+</div>
+
+<%- include('layouts/footer') %>

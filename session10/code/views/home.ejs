@@ -1,0 +1,22 @@
+<%- include("layouts/header") %>
+
+<div class="container">
+    <%- messages('partials/messages', locals) %>
+    <%if(typeof errors !== "undefined") { %>
+        <% errors.forEach(error => { %>
+        <div class="alert alert-<%= type %> alert-dismissible fade show" role="alert">
+          <%= error.msg %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div> 
+        <% }); %>
+        <% } %>
+    <h1>Welcome to C-Craft Student activity </h1>
+    <h1>Web Course</h1>
+    <img src="/images/CMP-Cable-Glands.png" alt="CMP">
+    <h3>Join our course now !</h3>
+    <a href="register"><button>Sign Up</button></a><br>
+    <p>Arleady have an account? <a href="log_in">Log In</a></p>
+</div>
+<%- include("layouts/footer") %>

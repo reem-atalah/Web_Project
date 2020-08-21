@@ -5,29 +5,23 @@
 
             <div class="log">
                 <form method="POST">
-                    <%- messages('partials/messages',locals) %>
-                    <%if(typeof errors !== "undefined") { %>
-                    <% errors.forEach(error => { %>
-                    <div class="alert alert-<%= type %> alert-dismissible fade show" role="alert">
-                        <%= error.msg %>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div> 
-                    <% }); %>
-                    <% } %>
+
+                    <% if(message.length >0){ %>
+                        <div id="alerty" class="alert alert-success">
+
+                       <button id="msg"><%= message %></button> 
+                        <button id='close' onclick='this.parentNode.parentNode.removeChild(this.parentNode); return false;'>x</button>
+                    </div><br>
+                <% } %>
+
                     <h2>Log in</h2>
                     <div class="username">
-                        <!-- <label for="username_">Email -->
-                        <input type="text" placeholder="Username">
+                        <input type="text" placeholder="Username" value="<%= (typeof username !== 'undefined') ? username : '' %>" />
                         <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
-                        <!-- </label> -->
                     </div>
                     <div class="password">
-                        <!-- <label for="pass_">Password -->
-                        <input type="password" placeholder="Password">
+                        <input type="password" placeholder="Password" />
                         <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
-                        <!-- </label> -->
                     </div>
                     <button id="btn" type="submit">Log in </button><br>
                     <small>Don't have an account?

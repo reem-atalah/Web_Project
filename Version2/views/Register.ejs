@@ -15,13 +15,15 @@
                     <h2>Sign Up</h2>
                     <div class="username-div">
                         <input id="username" type="text" name="username" required
-                        autocomplete="off"><br>
+                        autocomplete="off"
+                        value="<%= (typeof username !== 'undefined') ? username : '' %>" /><br>
                         <label for="username" class="label-name">
                             <span class="span-name">User Name</span>
                         </label><br>
                     </div>
                     <div class="email">
-                        <input id="email" type="email" name="email"autocomplete="false" required autocomplete="off"><br>
+                        <input id="email" type="email" name="email"autocomplete="false" required autocomplete="off"
+                        value="<%= (typeof email !== 'undefined') ? email : '' %>" /><br>
                         <label for="email" class="label_email">
                             <span class="span_email">Email</span>
                         </label><br>

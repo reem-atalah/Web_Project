@@ -1,0 +1,54 @@
+<%- include("layouts/header") %>
+
+<!-- use <%= %> for output -->
+
+<div class="sign_up">
+  <h1 class="header">Sign up</h1>
+  <!-- it should be 'partials/messages' not 'partials/message' -->
+  <%- messages('partials/messages',locals) %>
+  <%if(typeof errors !== "undefined") { %>
+  <% errors.forEach(error => { %>
+  <div class="alert alert-<%= type %> alert-dismissible fade show" role="alert">
+    <%= error.msg %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div> 
+  <% }); %>
+  <% } %>
+  <br />
+  <form method="POST">
+    <label for="firstname">Firstname</label> <br /> <!-- name: used in data base -->
+    <input id="firstname" type="text" name="firstname" autocomplete="off" placeholder="FirstName" 
+    value="<%= (typeof firstname !== 'undefined') ? firstname : '' %>"
+    />
+    <br /><br />
+    <label for="lastname">Lastname</label> <br />
+    <input id="lastname" type="text" name="lastname" autocomplete="off" placeholder="LastName" 
+    value="<%= (typeof lastname !== 'undefined') ? lastname : '' %>" 
+    />
+    <br /><br />
+    <label for="username">Username</label> <br />
+    <input id="username" type="text" name="username" autocomplete="off" placeholder="FirstLastName"
+    value="<%= (typeof username !== 'undefined') ? username : '' %>" 
+     />
+    <br /><br />
+    <label for="email">Email</label> <br />
+    <input id="email" type="email" name="email" autocomplete="off" placeholder="example@example.com"
+     value="<%= (typeof email !== 'undefined') ? email : '' %>"
+     />
+    <br /><br />
+    <label for="password">Password</label> <br />
+    <input id="password" type="password" name="password" autocomplete="off" placeholder="*******" />
+    <br /><br />
+    <label for="confirm_password">Confirm Password</label> <br />
+    <input id="confirm_password" type="password" name="confirm_password" autocomplete="off" placeholder="*******" />
+    <br />
+    <button type="submit" id="submit_button">Sign Up </button>
+  </form>
+  <br>
+  <p>Arleady have an account? <a href="log_in">Log In</a></p>
+
+</div>
+
+<%- include("layouts/footer") %>

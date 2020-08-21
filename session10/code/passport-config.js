@@ -7,7 +7,7 @@ initialize = (passport) => {
     const authenticateUser = async (username, password, done) => {
         try {
             const user = await User.findOne({ username: username });
-            console.log(user);
+           
             if (!user) {
                 return done(null, false, { message: 'No user with this user name' })
             }
@@ -23,21 +23,21 @@ initialize = (passport) => {
         }
     }
     passport.use(new localStrategy(authenticateUser))
-    passport.serializeUser((user, done) => { 
-        console.log(user); 
-       done(null, user.id)
+    passport.serializeUser((user, done) => {  
+        // curr_user= user; 
+        // console.log("inside serialize "+curr_user); 
+        done(null, user.id)
     })
     passport.deserializeUser((id, done) => {
         User.findById(id, (err, user) => {
             done(err, user);
-            console.log(user);
         })
     })
 
 }
  
-// const obj={
-//     initialize:initialize   
-// };
-
-module.exports = initialize;
+const obj={
+    initialize:initialize
+    
+};
+module.exports = obj;

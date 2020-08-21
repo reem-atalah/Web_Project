@@ -9,7 +9,8 @@ router.get('/', (req, res) => {
             RegisterOrProfileLink: 'Register',
             RegisterOrProfile: 'Register',
             loginOrOut: 'login',
-            log:'Log In'
+            log:'Log In',
+            message : req.flash('message')
         })
     }
     if (checkFunc.checkAuth) {
@@ -19,7 +20,8 @@ router.get('/', (req, res) => {
             RegisterOrProfileLink: 'user-profile',
             RegisterOrProfile: 'Your Profile',
             loginOrOut: 'logout',
-            log:'Log Out'
+            log:'Log Out',
+            message : req.flash('message')
         })
     }
 
