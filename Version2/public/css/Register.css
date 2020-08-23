@@ -63,11 +63,6 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-body {
-    background-image: url("../images/contacts.jpg");
-    background-size: cover;
-}
-
 a {
     color: rgb(165, 30, 255);
 }
@@ -110,23 +105,20 @@ a {
 }
 
 .Reg-container {
-    height: 80vh;
+    background-image: url(../images/contacts.jpg);
+    background-size: cover;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .reg {
-    position: relative;
-    padding: 50px 40px 40px 40px;
+    padding: 40px 25px 40px 25px;
     margin-top: 10%;
-    margin-bottom: 3%;
-    /* height: 60vh; best feature for no errors*/
-    /* max-height: 100px; */
-    height: 100%;
-    /* width: 25vw; */
+    margin-bottom: 5%;
+    height: fit-content;
     background-color: rgba(45, 6, 66, 0.7);
-    /* background-color: white; */
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -151,13 +143,12 @@ small a {
 }
 
 .footer {
-    position: absolute;
     width: 100%;
     color: #aaa;
     font-size: 1rem;
     font-family: Arial, Helvetica, sans-serif;
     bottom: 0;
-    padding: 20px;
+    padding: 20px 0px 10px;
     text-align: center;
     height: fit-content;
     background-image: url("../images/footer_bg.png");
@@ -184,12 +175,13 @@ footer h4 {
     flex-direction: row;
 }
 
-form {
+
+/* form {
     position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
+} */
 
 .username-div,
 .email,
