@@ -1,6 +1,6 @@
 <%- include("layouts/header") %>
  <div class="container">
-    <%- messages('partials/messages',locals) %>
+    <!-- <%- messages('partials/messages',locals) %>
     <%if(typeof errors !== "undefined") { %>
     <% errors.forEach(error => { %>
     <div class="alert alert-<%= type %> alert-dismissible fade show" role="alert">
@@ -10,6 +10,14 @@
         </button>
     </div> 
     <% }); %>
+    <% } %> -->
+    
+    <% if(message.length >0){ %>
+        <div id="alerty" class="alert alert-success">
+
+        <button id="msg"><%= message %></button> 
+            <button id='close' onclick='this.parentNode.parentNode.removeChild(this.parentNode); return false;'>x</button>
+        </div><br>
     <% } %>
 
         <div class="sub_container1  wow animate__animated animate__backInLeft">

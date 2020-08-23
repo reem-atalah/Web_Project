@@ -18,7 +18,7 @@ router.get('/',checkFunc.checkNotAuth, (req, res) => {
       
 });
 
-router.post('/',async (req, res) => {
+router.post('/',checkFunc.checkNotAuth,async (req, res) => {
  
     const userName = req.body.username;
     const Email = req.body.email;

@@ -65,29 +65,44 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    if (checkFunc.checkNotAuth) {
-        return res.render('Home', {
-            title: 'Home',
-            css: 'style',
-            RegisterOrProfileLink: 'Register',
-            RegisterOrProfile: 'Register',
-            loginOrOut: 'login',
-            log:'Log In',
-            message : req.flash('message')
-        })
-    }
-    if (checkFunc.checkAuth) {
-        return res.render('Home', {
-            title: 'Home',
-            css: 'style',
-            RegisterOrProfileLink: 'user-profile',
-            RegisterOrProfile: 'Your Profile',
-            loginOrOut: 'logout',
-            log:'Log Out',
-            message : req.flash('message')
-        })
-    }
-});
+
+            return res.render('Home', {
+                title: 'Home',
+                css: 'style',
+                RegisterOrProfileLink: 'Register',
+                RegisterOrProfile: 'Register',
+                loginOrOut: 'login',
+                log:'Log In',
+                message : req.flash('message')
+            })
+    });
+
+// app.get('/',checkFunc.checkAuth, (req, res) => {
+//         console.log('hi');
+//         return res.render('Home', {
+//             title: 'Home',
+//             css: 'style',
+//             RegisterOrProfileLink: 'user-profile',
+//             RegisterOrProfile: 'Your Profile',
+//             loginOrOut: 'logout',
+//             log:'Log Out',
+//             message : req.flash('message')
+//         })
+//     });
+// app.get('/',checkFunc.checNotkAuth, (req, res) => {
+//         console.log('bye');
+//         return res.render('Home', {
+//             title: 'Home',
+//             css: 'style',
+//             RegisterOrProfileLink: 'Register',
+//             RegisterOrProfile: 'Register',
+//             loginOrOut: 'login',
+//             log:'Log In',
+//             message : req.flash('message')
+//         })
+    
+// });
+
 app.use('/Home', require('./routes/Home'));
 app.use('/Register', require('./routes/Register'));
 app.use('/login', require('./routes/login'));
