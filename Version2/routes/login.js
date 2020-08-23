@@ -1,26 +1,26 @@
 const router = require('express').Router();
 const passport = require('passport');
-const checkFunc=require('../functions');
+const checkFunc = require('../functions');
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 
-router.get('/',checkFunc.checkNotAuth, (req, res) => {
+router.get('/', checkFunc.checkNotAuth, (req, res) => {
     return res.render('login', {
         title: 'Log In',
         css: 'login',
         RegisterOrProfileLink: 'Register',
         RegisterOrProfile: 'Register',
         loginOrOut: 'login',
-        log:'Log In',
-        message : req.flash('message')
+        log: 'Log in',
+        message: req.flash('message')
 
     })
 });
-router.post('/',checkFunc.checkNotAuth, passport.authenticate('local', {
+router.post('/', checkFunc.checkNotAuth, passport.authenticate('local', {
     successRedirect: '/Home',
     failureRedirect: '/contact',
     failureFlash: true
-}), async (req, res) => {
+}), async(req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 

@@ -3,7 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
-const flush=require('connect-flash');
+const flush = require('connect-flash');
 const passport = require('passport');
 const User = require('./models/User');
 const override = require('method-override');
@@ -56,8 +56,8 @@ app.delete('/logout', checkFunc.checkAuth, (req, res) => {
         RegisterOrProfileLink: 'Register',
         RegisterOrProfile: 'Register',
         loginOrOut: 'login',
-        log:'Log In',
-        message : req.flash('message')
+        log: 'Log in',
+        message: req.flash('message')
     })
 })
 
@@ -66,16 +66,16 @@ app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
 
-            return res.render('Home', {
-                title: 'Home',
-                css: 'style',
-                RegisterOrProfileLink: 'Register',
-                RegisterOrProfile: 'Register',
-                loginOrOut: 'login',
-                log:'Log In',
-                message : req.flash('message')
-            })
-    });
+    return res.render('Home', {
+        title: 'Home',
+        css: 'style',
+        RegisterOrProfileLink: 'Register',
+        RegisterOrProfile: 'Register',
+        loginOrOut: 'login',
+        log: 'Log in',
+        message: req.flash('message')
+    })
+});
 
 // app.get('/',checkFunc.checkAuth, (req, res) => {
 //         console.log('hi');
@@ -100,7 +100,7 @@ app.get('/', (req, res) => {
 //             log:'Log In',
 //             message : req.flash('message')
 //         })
-    
+
 // });
 
 app.use('/Home', require('./routes/Home'));
@@ -114,7 +114,7 @@ app.use('/Embedded', require('./routes/Embedded'));
 app.use('/Web', require('./routes/Web'));
 app.use('/Graphics', require('./routes/Graphics'));
 
-app.use('/deleteAll', async (req, res) => {
+app.use('/deleteAll', async(req, res) => {
     User.deleteMany({}, err => {
         if (err) return console.log(err);
     });
