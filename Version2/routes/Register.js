@@ -9,10 +9,6 @@ router.get('/', checkFunc.checkNotAuth, (req, res) => {
     return res.render('Register', {
         title: 'Register',
         css: 'Register',
-        RegisterOrProfileLink: 'Register',
-        RegisterOrProfile: 'Register',
-        loginOrOut: 'login',
-        log: 'Log in',
         message: req.flash('message')
     })
 
@@ -47,10 +43,6 @@ router.post('/', checkFunc.checkNotAuth, async(req, res) => {
         return res.render('Register', {
             title: "Register",
             css: "Register",
-            RegisterOrProfileLink: 'Register',
-            RegisterOrProfile: 'Register',
-            loginOrOut: 'login',
-            log: 'Log In',
             message: req.flash('message'),
             email: Email,
             genderList: gend
@@ -65,10 +57,6 @@ router.post('/', checkFunc.checkNotAuth, async(req, res) => {
             return res.render('Register', {
                 title: "Register",
                 css: "Register",
-                RegisterOrProfileLink: 'Register',
-                RegisterOrProfile: 'Register',
-                loginOrOut: 'login',
-                log: 'Log In',
                 message: req.flash('message'),
                 // errors: errors, 
                 email: Email,
@@ -83,10 +71,6 @@ router.post('/', checkFunc.checkNotAuth, async(req, res) => {
             return res.render('Register', {
                 title: "Register",
                 css: "Register",
-                RegisterOrProfileLink: 'Register',
-                RegisterOrProfile: 'Register',
-                loginOrOut: 'login',
-                log: 'Log In',
                 message: req.flash('message'),
                 // errors: errors, 
                 username: userName,

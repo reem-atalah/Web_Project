@@ -34,10 +34,17 @@ app.use(session({
 // app.use(flush());
 
 //Authentication
-pass_conf(passport);
+pass_conf.initialize(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
+//dynamic header
+app.use((req,res, next)=>{
+    res.locals.isAuthenticatedd =req.isAuthenticated();
+    next();
+})
+
+// console.log(isAuthenticatedd);
 //flash messages middleware
 app.use(require('connect-flash')());
 app.use((req, res, next) => {
@@ -49,14 +56,11 @@ app.use((req, res, next) => {
 app.use(override('_method'));
 // app.delete('/logout', checkFunc.checkAuth, (req, res) => {
 //     req.logOut();
+//     // req.session.destroy();
 //     req.flash('message', 'You have logged out successfully');
 //     return res.render('home', {
 //         title: 'Home',
 //         css: 'home',
-//         RegisterOrProfileLink: 'Register',
-//         RegisterOrProfile: 'Register',
-//         loginOrOut: 'login',
-//         log: 'Log in',
 //         message: req.flash('message')
 //     })
 // })
@@ -69,39 +73,9 @@ app.get('/', (req, res) => {
     return res.render('Home', {
         title: 'Home',
         css: 'style',
-        RegisterOrProfileLink: 'Register',
-        RegisterOrProfile: 'Register',
-        loginOrOut: 'login',
-        log: 'Log in',
         message: req.flash('message')
     })
 });
-
-// app.get('/',checkFunc.checkAuth, (req, res) => {
-//         console.log('hi');
-//         return res.render('Home', {
-//             title: 'Home',
-//             css: 'style',
-//             RegisterOrProfileLink: 'user-profile',
-//             RegisterOrProfile: 'Your Profile',
-//             loginOrOut: 'logout',
-//             log:'Log Out',
-//             message : req.flash('message')
-//         })
-//     });
-// app.get('/',checkFunc.checNotkAuth, (req, res) => {
-//         console.log('bye');
-//         return res.render('Home', {
-//             title: 'Home',
-//             css: 'style',
-//             RegisterOrProfileLink: 'Register',
-//             RegisterOrProfile: 'Register',
-//             loginOrOut: 'login',
-//             log:'Log In',
-//             message : req.flash('message')
-//         })
-
-// });
 
 app.use('/Home', require('./routes/Home'));
 app.use('/Register', require('./routes/Register'));

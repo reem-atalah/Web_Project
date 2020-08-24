@@ -6,10 +6,8 @@ router.get('/', (req, res) => {
     return res.render('contact', {
         title: 'Contact Us',
         css: 'contact',
-        RegisterOrProfileLink: 'Register',
-        RegisterOrProfile: 'Register',
-        loginOrOut: 'login',
-        log: 'Log in'
+        message: req.flash('message')
+
     })
 });
 
@@ -32,7 +30,7 @@ router.post('/', (req, res) => {
         subject: 'Sending Email using Node.js',
         text: 'That was easy!'
     });
-    req.flash('success', 'Your message has been sent!');
+    req.flash('message', 'Your message has been sent!');
     res.redirect('/contact');
 
 });

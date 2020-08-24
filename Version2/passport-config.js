@@ -33,8 +33,8 @@ initialize = (passport) => {
 
 }
  
-// const obj={
-//     initialize:initialize   
-// };
+const obj={
+    initialize:initialize   
+};
 
-module.exports = initialize;
+module.exports = obj;

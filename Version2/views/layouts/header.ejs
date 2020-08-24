@@ -30,9 +30,21 @@
 
     </div>
     <div class="nav-contents-right">
-        <a href="/<%=RegisterOrProfileLink%>"><%= RegisterOrProfile %></a>
-        <a href="/<%=loginOrOut%>"><%= log %></a>
+
+    <% if (isAuthenticatedd){ %>
+
+        <a href="'/user-profile/'+ user.username">My Profile</a>
+        <a href="/logout">Log Out</a>
+           
+    <% } else{ %> 
+
+        <a href="/Register">Register</a>
+        <a href="/login">Log In</a>
+
+    <% }%>
+
     </div>
+
 </nav>
 
 <body>

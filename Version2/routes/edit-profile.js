@@ -15,11 +15,11 @@ router.get('/:username', async(req, res) => {
             title: user.username + "/edit-profile",
             css: "user-profile",
             user: user,
-            header: 'header_out',
-            RegisterOrProfileLink: 'user-profile',
-            RegisterOrProfile: 'My profile',
-            loginOrOut: 'logout',
-            log: 'Log Out'
+            header: 'header_out'
+            // RegisterOrProfileLink: 'user-profile',
+            // RegisterOrProfile: 'My profile',
+            // loginOrOut: 'logout',
+            // log: 'Log Out'
         });
     } catch (err) {
         return console.log(err);
