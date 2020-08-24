@@ -16,11 +16,7 @@ router.get('/', checkFunc.checkNotAuth, (req, res) => {
 
     })
 });
-router.post('/', checkFunc.checkNotAuth, passport.authenticate('local', {
-    successRedirect: '/Home',
-    failureRedirect: '/contact',
-    failureFlash: true
-}), async(req, res) => {
+router.post('/', async(req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
@@ -39,13 +35,15 @@ router.post('/', checkFunc.checkNotAuth, passport.authenticate('local', {
             return res.redirect('/login');
         }
         // console.log(req.user);
-        req.flash('message', 'Auth');
-        res.redirect('/Home');
+        // req.flash('message', 'Auth');
+
+        res.redirect('user-profile/' + user.username);
 
     } catch (err) {
         return console.error(err);
     }
 });
+
 // router.post('/', passport.authenticate('local', {
 //     successRedirect: '/Home',
 //     failureRedirect: '/contact',

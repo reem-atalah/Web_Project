@@ -31,7 +31,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
-app.use(flush());
+// app.use(flush());
 
 //Authentication
 pass_conf(passport);
@@ -47,19 +47,19 @@ app.use((req, res, next) => {
 
 //logOut
 app.use(override('_method'));
-app.delete('/logout', checkFunc.checkAuth, (req, res) => {
-    req.logOut();
-    req.flash('message', 'You have logged out successfully');
-    return res.render('home', {
-        title: 'Home',
-        css: 'home',
-        RegisterOrProfileLink: 'Register',
-        RegisterOrProfile: 'Register',
-        loginOrOut: 'login',
-        log: 'Log in',
-        message: req.flash('message')
-    })
-})
+// app.delete('/logout', checkFunc.checkAuth, (req, res) => {
+//     req.logOut();
+//     req.flash('message', 'You have logged out successfully');
+//     return res.render('home', {
+//         title: 'Home',
+//         css: 'home',
+//         RegisterOrProfileLink: 'Register',
+//         RegisterOrProfile: 'Register',
+//         loginOrOut: 'login',
+//         log: 'Log in',
+//         message: req.flash('message')
+//     })
+// })
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -113,6 +113,8 @@ app.use('/Machine', require('./routes/Machine'));
 app.use('/Embedded', require('./routes/Embedded'));
 app.use('/Web', require('./routes/Web'));
 app.use('/Graphics', require('./routes/Graphics'));
+app.use('/edit-profile', require('./routes/edit-profile'));
+app.use('/logout', require('./routes/logout'));
 
 app.use('/deleteAll', async(req, res) => {
     User.deleteMany({}, err => {

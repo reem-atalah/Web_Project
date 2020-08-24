@@ -15,15 +15,23 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    
+
     bio: {
         type: String,
         default: 'Bio'
     },
-    
-    gender:{
-        type:String,
-        required:true
+
+    image: {
+        type: String,
+
+    },
+    Courses: [{
+        type: Schema.Types.ObjectId,
+        ref: "Course"
+    }],
+    gender: {
+        type: String,
+        required: true
     }
 });
 
