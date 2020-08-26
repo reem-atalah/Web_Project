@@ -4,7 +4,8 @@ const checkFunc = require("../functions");
 router.get('/', (req, res) => {
         return res.render('Web', {
             title: 'Web Development',
-            css: 'Web'
+            css: 'Web',
+            user: req.user,
         })
 
 });

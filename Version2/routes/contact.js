@@ -6,18 +6,19 @@ router.get('/', (req, res) => {
     return res.render('contact', {
         title: 'Contact Us',
         css: 'contact',
+        user: req.user,
         message: req.flash('message')
 
     })
 });
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
+    host: 'smtp.gmail.com', //smtp.gmail.com
     port: 587,
     secure: false,
     service: 'gmail',
     auth: {
-        user: '',
+        user: 'reem.atalah1@gmail.com',
         pass: ''
     }
 });
@@ -25,7 +26,7 @@ const transporter = nodemailer.createTransport({
 // // POST contact us page
 router.post('/', (req, res) => {
     transporter.sendMail({
-        from: 'ahmecd@gmail.com',
+        from: 'reem.atalah1@gmail.com',
         to: 'mennaahmedali77@gmail.com',
         subject: 'Sending Email using Node.js',
         text: 'That was easy!'

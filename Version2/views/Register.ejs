@@ -40,12 +40,15 @@
                             <span class="span_confpass">Confirm Password</span>
                         </label><br>
                     </div>
+                    <div class="gender-classDiv">
                         <select required name="genderList" id="genderList" onchange="toggle_gender() "
                         value="<%= (typeof genderList !== 'undefined') ? genderList : 'Gender' %>>
-                            <option value="" selected disabled hidden>Gender</option>
+                            <option value="Gender" >Gender</option>
+                            <option>Gender</option>
                             <option>Male</option>
                             <option>Female</option>
                         </select><br>
+                    </div>
                     <button id="btn" type="submit">Sign Up </button><br>
                     <small>Arleady have an account?
                     <a href="login">Log In</a>

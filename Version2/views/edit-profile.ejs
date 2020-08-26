@@ -1,5 +1,50 @@
 <%- include("layouts/header") %>
-<div>
-    <h1>hello</h1>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+</head>
+<div class="main_container">
+  <div class="card-edit">
+      <form action="/user-profile/<%= user.username %>/edit-profile" method="POST" enctype="multipart/form-data"> 
+        <% if (user.image) { %>
+        <div class="images">
+            <img class="card-img-left" src="/images/instructors/<%= user.image %>" style="height:135px;width:130px;border-radius:50%">
+            <img class="grey"src="/images/grey.png" style="height:135px;width:130px;border-radius:50%">
+            <% } else { %>
+            <img class="card-img-left" src="/images/<%= user.gender %>.png" style="height:135px;width:130px;border-radius:50%" >
+            <img class="grey"src="/images/grey.png" style="height:135px;width:130px;border-radius:50%">
+
+            <% } %>
+            <i id="camera" class="fa fa-camera" aria-hidden="true"style="font-size:30px;"></i> <br>
+            <div class="file-field input-field">
+                <div class="btn grey">
+                    <span>Choose the image</span>
+                <input class="file-image"name='userImg' type="file" >
+                </div>
+                <div class="file-path-wrapper">
+                    <input name="imagePath"class="file-path validate" type="text" >
+                  </div>
+            </div>
+        </div>
+        
+            <div class="card-bodyy">
+                <input name="name" class="card-title" placeholder="<%= user.username %>"> 
+                <ul>
+                    <li class="card-text">
+                        <input name="bio" placeholder="<%= user.bio %>" >
+                    </li>
+                    
+            <button class="btn btn-primary">Apply Changes</button>
+                </ul>
+            </div>
+      </form>
+  
+     
+  </div>
 </div>
+            
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>  
+
 <%- include("layouts/footer") %>
+
+

@@ -11,6 +11,7 @@ const nodemailer = require('nodemailer');
 const cron = require("node-cron");
 const checkFunc = require('./functions');
 const pass_conf = require('./passport-config');
+const multer=require('multer');
 const app = express();
 const port = 8080;
 
@@ -44,7 +45,6 @@ app.use((req,res, next)=>{
     next();
 })
 
-// console.log(isAuthenticatedd);
 //flash messages middleware
 app.use(require('connect-flash')());
 app.use((req, res, next) => {
@@ -68,11 +68,25 @@ app.use(override('_method'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+//set dtorage engine
+// const storage= multer.diskStorage({
+//     destination: "./public/images/user-pic/",
+//     filename: (req, file ,cb)=>{
+//         cb(null,file.fieldname+ '-' + Date.now()+
+//         path.extname(file.originalname));
+//     }
+// });
+
+// const upload =multer({
+//     storage:storage
+// }).single('userImg');
+
 app.get('/', (req, res) => {
 
     return res.render('Home', {
         title: 'Home',
         css: 'style',
+        user: req.user,
         message: req.flash('message')
     })
 });
@@ -87,7 +101,7 @@ app.use('/Machine', require('./routes/Machine'));
 app.use('/Embedded', require('./routes/Embedded'));
 app.use('/Web', require('./routes/Web'));
 app.use('/Graphics', require('./routes/Graphics'));
-app.use('/edit-profile', require('./routes/edit-profile'));
+// app.use('/edit-profile', require('./routes/edit-profile'));
 app.use('/logout', require('./routes/logout'));
 
 app.use('/deleteAll', async(req, res) => {

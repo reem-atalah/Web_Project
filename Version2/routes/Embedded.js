@@ -5,7 +5,8 @@ router.get('/', (req, res) => {
 
         return res.render('Embedded', {
             title: 'Embedded Systems',
-            css: 'Embedded'
+            css: 'Embedded',
+            user: req.user
 
         })
 });

@@ -120,6 +120,9 @@
 .btn {
     background: linear-gradient(to bottom, #3366cc 0%, #990099 100%);
 }
+ul{
+    list-style-type: none;
+}
 
 .footer {
     position: absolute;

@@ -186,7 +186,8 @@ footer h4 {
 .username-div,
 .email,
 .password,
-.conf-password {
+.conf-password,
+.gender-classDiv {
     position: relative;
     overflow: hidden;
     /* top: 50%; 
