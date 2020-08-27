@@ -58,13 +58,11 @@ router.get('/:username/edit-profile',checkFunc.checkAuth, async (req, res) => {
 
 router.post('/:username/edit-profile', checkFunc.checkAuth, async (req,res)=>{
 
-    const user = await User.findOne({ username: req.params.username });
-    console.log(user);
+    try{
+        const user = await User.findOne({ username: req.params.username });
+    USERNAME=user.username;
 
-    const Name = req.body.name;
-    const bio = req.body.bio;
-
-    //set dtorage engine
+    //set storage engine
     const storage= multer.diskStorage({
     destination: "./public/images/user-pic/",
     filename: (req, file ,cb)=>{
@@ -72,42 +70,53 @@ router.post('/:username/edit-profile', checkFunc.checkAuth, async (req,res)=>{
         path.extname(file.originalname));
     }
 });
-    //allowed extension
-    checkFileType = (file,cb)=>{
-        const filetypes= /jpeg|jpg|png|gif/ ; 
-        const extname= filetypes.test(path.extname(file.originalname));
-        const mimeType= filetypes.test(file.mimeType);
-        if (mimeType && extname){
-            return cb(null, true);
-        }
-        else{
-            cb("Error: Images Only !")
-        }
-    }
+
     const upload =multer({
         storage:storage,
         limits: {fileSize: 1000000}, //1 million bit, 1Mb
-        fileFilter: (req,file,cb)=>{
-            checkFileType(file,cb)
-        }
+        // fileFilter: (req,file,cb)=>{
+        //     checkFileType(file,cb)
+        // }
+        
     }).single('userImg');
+
+    //allowed extension
+    // checkFileType = (file,cb)=>{
+    //     const filetypes= /jpeg|jpg|png|gif/ ; 
+    //     const extname= filetypes.test(path.extname(file.originalname).toLowerCase());
+    //     const mimeType= filetypes.test(file.mimeType);
+    //     if (mimeType && extname){
+    //         return cb(null, true);
+    //     }
+    //     else{
+    //         req.flash("Error: Images Only !")
+    //     }
+    // }
     
     upload(req,res, (err)=>{
         if(err){
             req.flash('message', 'Error in uploading image' );
-            res.redirect('/'+ user.username);
+            // res.redirect('/'+ USERNAME);
         }
         else{
            if(req.file === undefined){
             req.flash('message', 'Error: No File Selected')
-            res.render('/:username/edit-profile')
+            // res.render(USERNAME+'/edit-profile')
            }else{
-            res.render('/:username/edit-profile')
+            console.log(req.file);
+            // req.flash('message', 'image uploaded')
+            res.render(USERNAME ,{
+                file: './public/images/user-pic/'+ req.file.filename
+            })
+            
            }
         }
-    })
+    });
 
-    const img=req.body.imagePath;
+    const Name = req.body.input_name;
+    const bio = req.body.input_bio;
+    const img=req.body.input_image;
+    console.log(img+" " + Name+" "+ bio);
 
     user.username=Name;
     user.bio=bio;
@@ -115,7 +124,12 @@ router.post('/:username/edit-profile', checkFunc.checkAuth, async (req,res)=>{
 
     console.log(user);
     console.log(user.image+" " + user.username+" "+ user.bio)
-    res.redirect('/contact');
+    res.redirect('/user-profile/'+ USERNAME);
+    }
+ catch (err) {
+    return console.log(err);
+}
+    
 });
 
 

@@ -12,6 +12,7 @@ const cron = require("node-cron");
 const checkFunc = require('./functions');
 const pass_conf = require('./passport-config');
 const multer=require('multer');
+const upload= require('express-fileupload');
 const app = express();
 const port = 8080;
 
@@ -68,7 +69,7 @@ app.use(override('_method'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-//set dtorage engine
+//set storage engine
 // const storage= multer.diskStorage({
 //     destination: "./public/images/user-pic/",
 //     filename: (req, file ,cb)=>{

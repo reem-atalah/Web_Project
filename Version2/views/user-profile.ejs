@@ -2,6 +2,13 @@
 
 <div class="main_container">
   <div class="card">
+    <% if(message.length >0){ %>
+        <div id="alerty" class="alert alert-success">
+  
+       <button id="msg"><%= message %></button> 
+        <button id='close' onclick='this.parentNode.parentNode.removeChild(this.parentNode); return false;'>x</button>
+    </div><br>
+  <% } %>
   <% if (user.image) { %>
             <img class="card-img-left" src="/images/instructors/<%= user.image %>" style="height:70px;width:70px;border-radius:50%">
             <% } else { %>
