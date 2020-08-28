@@ -14,7 +14,7 @@ const multer = require('multer');
 //     })
 // });
 
-router.get('/:username', checkFunc.checkAuth, async(req, res) => {
+router.get('/:username', checkFunc.checkAuth, async (req, res) => {
     try {
         const user = await User.findOne({ username: req.params.username });
 
@@ -36,7 +36,7 @@ router.get('/:username', checkFunc.checkAuth, async(req, res) => {
 });
 
 // GET/username/edit-profile
-router.get('/:username/edit-profile', checkFunc.checkAuth, async(req, res) => {
+router.get('/:username/edit-profile', checkFunc.checkAuth, async (req, res) => {
     try {
         const user = await User.findOne({ username: req.user.username });
         // const user=pass_conf.curr_user;
@@ -57,7 +57,7 @@ router.get('/:username/edit-profile', checkFunc.checkAuth, async(req, res) => {
 });
 
 
-router.post('/:username/edit-profile', checkFunc.checkAuth, async(req, res) => {
+router.post('/:username/edit-profile', checkFunc.checkAuth, async (req, res) => {
 
     try {
         const user = await User.findOne({ username: req.params.username });
@@ -94,15 +94,15 @@ router.post('/:username/edit-profile', checkFunc.checkAuth, async(req, res) => {
         //     }
         // }
 
-        upload(req, res, (err) => {
+        upload(req, res, async (err) => {
             if (err) {
                 req.flash('message', 'Error in uploading image');
-                res.redirect('/' + USERNAME);
+                res.redirect('/user-profile/' + USERNAME);
             }
             if (req.file === undefined) {
                 req.flash('message', 'Error: No File Selected')
                 user.image = 'err'
-                    // res.render(USERNAME+'/edit-profile')
+                // res.render(USERNAME+'/edit-profile')
             }
             if (req.file) {
                 console.log(req.file);
@@ -121,8 +121,9 @@ router.post('/:username/edit-profile', checkFunc.checkAuth, async(req, res) => {
                 user.username = req.body.input_name;
 
             }
-            user.save()
+            await user.save()
 
+            res.redirect('/user-profile/' + user.username);
         });
 
 
@@ -131,12 +132,12 @@ router.post('/:username/edit-profile', checkFunc.checkAuth, async(req, res) => {
         // user.image = img;
 
         //console.log(user.image + " " + user.username + " " + user.bio)
-        res.render('user-profile', {
-            title: user.username,
-            css: "user-profile",
-            user: user,
-            message: req.flash('message')
-        });
+        // res.render('user-profile', {
+        //     title: user.username,
+        //     css: "user-profile",
+        //     user: user,
+        //     message: req.flash('message')
+        // });
     } catch (err) {
         return console.log(err);
     }
