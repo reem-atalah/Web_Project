@@ -101,13 +101,14 @@
 }
 
 .main_container {
+    padding: 30px 30px 30px 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-image: url("../images/bradcam2.png");
     width: 100%;
-     height: 100vh;
-     flex-direction: column;
+    height: 85vh;
+    flex-direction: column;
 }
 
 .card-edit {
@@ -123,39 +124,42 @@
 .btn {
     background: linear-gradient(to bottom, #3366cc 0%, #990099 100%);
 }
-ul{
+
+ul {
     list-style-type: none;
 }
-.card-img-left{
+
+.card-img-left {
     position: relative;
     margin-left: 37%;
     background-color: black;
 }
-.grey{
-    position: absolute; 
+
+.grey {
+    position: absolute;
     opacity: 50%;
-    left:45%;
+    left: 45%;
 }
-.file-image{
+
+.file-image {
     /* position: absolute;  */
     /* left: 45%; */
     /* background-color: rgba(40, 31, 192, 0.7); */
     /* visibility: hidden; */
 }
 
-#camera{
-    position: absolute; 
+#camera {
+    position: absolute;
     top: 40%;
     left: 50%;
     color: #aaa;
     opacity: 90%;
     transition: 0.3s;
-
 }
+
 .card-img-left:focus+#camera {
     background-color: rgb(165, 30, 255);
 }
-
 
 .footer {
     position: absolute;
@@ -175,8 +179,8 @@ ul{
 }
 
 footer h1 {
+    margin: 0 0 10px 0;
     font-size: 1rem;
-    margin-bottom: 10px;
 }
 
 footer h4 {
@@ -203,33 +207,36 @@ footer h4 {
 .contact-links i:hover {
     color: rgb(116, 12, 185);
 }
-#alerty{
+
+#alerty {
     background-color: blueviolet;
     font-size: 18.3px;
-    font-family:Arial, 'Arial Narrow','Franklin Gothic Medium',   sans-serif;
+    font-family: Arial, 'Arial Narrow', 'Franklin Gothic Medium', sans-serif;
     flex-direction: row;
     border-radius: 2px;
     padding-left: 5px;
 }
+
 #close {
-    float:right;
-    display:inline-block;
-    padding:2px 5px;
+    float: right;
+    display: inline-block;
+    padding: 2px 5px;
     background-color: blueviolet;
     border: none;
     outline: none;
     transition: 0.3s;
 }
+
 #close:hover {
-    float:right;
-    display:inline-block;
-    padding:2px 5px;
-    color:white;
+    float: right;
+    display: inline-block;
+    padding: 2px 5px;
+    color: white;
 }
-#msg{
+
+#msg {
     background-color: blueviolet;
     border: none;
     outline: none;
     font-size: 17px;
-
 }

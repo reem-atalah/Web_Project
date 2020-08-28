@@ -20,11 +20,6 @@ const UserSchema = new Schema({
         type: String,
         default: 'Bio'
     },
-
-    image: {
-        type: String,
-
-    },
     Courses: [{
         type: Schema.Types.ObjectId,
         ref: "Course"
@@ -32,6 +27,11 @@ const UserSchema = new Schema({
     gender: {
         type: String,
         required: true
+    },
+    image: {
+        type: String,
+        default: 'err'
+
     }
 });
 

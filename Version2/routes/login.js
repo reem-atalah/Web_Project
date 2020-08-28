@@ -38,7 +38,7 @@ router.get('/', checkFunc.checkNotAuth, (req, res) => {
 //         // console.log(req.user);
 //         // req.flash('message', 'Auth');
 //         // req.isAuthenticated()=true;
-       
+
 //         console.log(req.isAuthenticated());
 
 //         res.redirect('user-profile/' + user.username);
@@ -48,13 +48,13 @@ router.get('/', checkFunc.checkNotAuth, (req, res) => {
 //     }
 // });
 
-router.post('/',passport.authenticate('local', {
+router.post('/', passport.authenticate('local', {
     // successRedirect: '/user-profile/' + user.username,
     failureRedirect: '/Register',
     failureFlash: true
 }));
 
-router.post('/', async (req,res)=>{
+router.post('/', async(req, res) => {
     const username = req.body.username;
     let user = await User.findOne({ username: username });
     res.redirect('user-profile/' + user.username);

@@ -3,7 +3,7 @@ const { checkAuth } = require('../functions');
 const checkFunc = require("../functions");
 const User = require('../models/User');
 const path = require('path');
-const multer=require('multer');
+const multer = require('multer');
 
 // router.get('/', checkFunc.checkAuth, (req, res) => {
 //     return res.render('user-profile', {
@@ -17,15 +17,16 @@ const multer=require('multer');
 router.get('/:username', checkFunc.checkAuth, async(req, res) => {
     try {
         const user = await User.findOne({ username: req.params.username });
+
         if (!user) {
-            req.flash('danger', 'There is no such user')
+            req.flash('message', 'There is no such user')
             return res.redirect('/register');
         }
         res.render('user-profile', {
             title: user.username,
             css: "user-profile",
             user: user,
-            message: req.flash
+            message: req.flash('message')
         });
     } catch (err) {
         return console.log(err);
@@ -35,20 +36,20 @@ router.get('/:username', checkFunc.checkAuth, async(req, res) => {
 });
 
 // GET/username/edit-profile
-router.get('/:username/edit-profile',checkFunc.checkAuth, async (req, res) => {
+router.get('/:username/edit-profile', checkFunc.checkAuth, async(req, res) => {
     try {
         const user = await User.findOne({ username: req.user.username });
         // const user=pass_conf.curr_user;
         if (!user) {
-            req.flash('danger', 'There is no such user')
+            req.flash('message', 'There is no such user')
             return res.redirect('/register');
         }
 
         res.render('edit-profile', {
-            title: 'Edit/'+ user.username,
+            title: 'Edit/' + user.username,
             css: "edit-profile",
             user: user,
-            message: req.flash
+            message: req.flash('message')
         });
     } catch (err) {
         return console.log(err);
@@ -56,80 +57,90 @@ router.get('/:username/edit-profile',checkFunc.checkAuth, async (req, res) => {
 });
 
 
-router.post('/:username/edit-profile', checkFunc.checkAuth, async (req,res)=>{
+router.post('/:username/edit-profile', checkFunc.checkAuth, async(req, res) => {
 
-    try{
+    try {
         const user = await User.findOne({ username: req.params.username });
-    USERNAME=user.username;
+        USERNAME = user.username;
+        console.log(user);
+        //set storage engine
+        const storage = multer.diskStorage({
+            destination: "./public/images/user-pic/",
+            filename: (req, file, cb) => {
+                cb(null, file.fieldname + '-' + Date.now() +
+                    path.extname(file.originalname));
+            }
+        });
 
-    //set storage engine
-    const storage= multer.diskStorage({
-    destination: "./public/images/user-pic/",
-    filename: (req, file ,cb)=>{
-        cb(null,file.fieldname+ '-' + Date.now()+
-        path.extname(file.originalname));
-    }
-});
+        const upload = multer({
+            storage: storage,
+            limits: { fileSize: 1000000 }, //1 million bit, 1Mb
+            // fileFilter: (req,file,cb)=>{
+            //     checkFileType(file,cb)
+            // }
 
-    const upload =multer({
-        storage:storage,
-        limits: {fileSize: 1000000}, //1 million bit, 1Mb
-        // fileFilter: (req,file,cb)=>{
-        //     checkFileType(file,cb)
+        }).single('userImg');
+
+        //allowed extension
+        // checkFileType = (file,cb)=>{
+        //     const filetypes= /jpeg|jpg|png|gif/ ; 
+        //     const extname= filetypes.test(path.extname(file.originalname).toLowerCase());
+        //     const mimeType= filetypes.test(file.mimeType);
+        //     if (mimeType && extname){
+        //         return cb(null, true);
+        //     }
+        //     else{
+        //         req.flash("Error: Images Only !")
+        //     }
         // }
-        
-    }).single('userImg');
 
-    //allowed extension
-    // checkFileType = (file,cb)=>{
-    //     const filetypes= /jpeg|jpg|png|gif/ ; 
-    //     const extname= filetypes.test(path.extname(file.originalname).toLowerCase());
-    //     const mimeType= filetypes.test(file.mimeType);
-    //     if (mimeType && extname){
-    //         return cb(null, true);
-    //     }
-    //     else{
-    //         req.flash("Error: Images Only !")
-    //     }
-    // }
-    
-    upload(req,res, (err)=>{
-        if(err){
-            req.flash('message', 'Error in uploading image' );
-            // res.redirect('/'+ USERNAME);
-        }
-        else{
-           if(req.file === undefined){
-            req.flash('message', 'Error: No File Selected')
-            // res.render(USERNAME+'/edit-profile')
-           }else{
-            console.log(req.file);
-            // req.flash('message', 'image uploaded')
-            res.render(USERNAME ,{
-                file: './public/images/user-pic/'+ req.file.filename
-            })
-            
-           }
-        }
-    });
+        upload(req, res, (err) => {
+            if (err) {
+                req.flash('message', 'Error in uploading image');
+                res.redirect('/' + USERNAME);
+            }
+            if (req.file === undefined) {
+                req.flash('message', 'Error: No File Selected')
+                user.image = 'err'
+                    // res.render(USERNAME+'/edit-profile')
+            }
+            if (req.file) {
+                console.log(req.file);
+                // req.flash('message', 'image uploaded')
+                // res.render(USERNAME, {
+                file = './public/images/user-pic/' + req.file.filename
+                user.image = req.file.filename
 
-    const Name = req.body.input_name;
-    const bio = req.body.input_bio;
-    const img=req.body.input_image;
-    console.log(img+" " + Name+" "+ bio);
+            }
 
-    user.username=Name;
-    user.bio=bio;
-    user.image=img;
+            if (req.body.input_bio) {
+                user.bio = req.body.input_bio
 
-    console.log(user);
-    console.log(user.image+" " + user.username+" "+ user.bio)
-    res.redirect('/user-profile/'+ USERNAME);
+            }
+            if (req.body.input_name) {
+                user.username = req.body.input_name;
+
+            }
+            user.save()
+
+        });
+
+
+        // const img = req.body.input_image;
+        //console.log(img + " " + Name + " " + bio);
+        // user.image = img;
+
+        //console.log(user.image + " " + user.username + " " + user.bio)
+        res.render('user-profile', {
+            title: user.username,
+            css: "user-profile",
+            user: user,
+            message: req.flash('message')
+        });
+    } catch (err) {
+        return console.log(err);
     }
- catch (err) {
-    return console.log(err);
-}
-    
+
 });
 
 

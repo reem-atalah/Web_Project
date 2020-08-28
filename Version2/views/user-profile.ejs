@@ -9,8 +9,8 @@
         <button id='close' onclick='this.parentNode.parentNode.removeChild(this.parentNode); return false;'>x</button>
     </div><br>
   <% } %>
-  <% if (user.image) { %>
-            <img class="card-img-left" src="/images/instructors/<%= user.image %>" style="height:70px;width:70px;border-radius:50%">
+  <% if (user.image !='err') { %>
+            <img class="card-img-left" src="/images/user-pic/<%= user.image %>" style="height:70px;width:70px;border-radius:50%">
             <% } else { %>
             <img class="card-img-left" src="/images/<%= user.gender %>.png" style="height:70px;width:70px;border-radius:50%" >
             <% } %>
@@ -21,7 +21,7 @@
                         <p><%= user.bio %></p>
                     </li>
                     <% if (user.Courses.length === 0) { %>
-                    <li class="card-text"><b>Courses:</b> You are not enrolled in any courses :(</li>
+                    <li class="card-text"><b>Courses:</b> You are not enrolled in any courses yet </li>
                     <% } else if (user.Courses.length === 1) { %>
                     <li class="card-text"><b>Courses:</b> <%= user.Courses[0].Name %></li>
                     <% } else { %>
@@ -34,7 +34,7 @@
                     </li>
                     <% } %>
                     <br>
-            <a href="/user-profile/'+ user.username/edit-profile" class="btn btn-primary">Edit</a>
+            <a href="/user-profile/<%= user.username %>/edit-profile" class="btn btn-primary">Edit</a>
                 </ul>
             </div>
      
