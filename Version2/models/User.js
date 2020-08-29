@@ -32,6 +32,10 @@ const UserSchema = new Schema({
         type: String,
         default: 'err'
 
+    },
+    confirmed:{
+        type: Boolean,
+        default: false
     }
 });
 

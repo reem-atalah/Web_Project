@@ -74,6 +74,10 @@ router.post('/', function(req, res, next) {
             req.flash('message', "Couldn't find such a user, please sign up")
             return res.redirect('/register');
         }
+        if(user.confirmed === false){
+            req.flash('message', "You must confirm your account first")
+            return res.redirect('/register');
+        }
         req.logIn(user, function(err) {
             if (err) { return next(err); }
             res.redirect('user-profile/' + user.username);
