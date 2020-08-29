@@ -1,9 +1,11 @@
+//process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 const router = require('express').Router();
 const User = require('../models/User');
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const checkFunc = require("../functions");
 const emailCheck = require('email-check');
+const nodemailer = require('nodemailer');
 
 router.get('/', checkFunc.checkNotAuth, (req, res) => {
     return res.render('Register', {
@@ -12,6 +14,16 @@ router.get('/', checkFunc.checkNotAuth, (req, res) => {
         message: req.flash('message')
     })
 
+});
+const transporter = nodemailer.createTransport({
+    // host: 'smtp.gmail.com', //smtp.gmail.com
+    // port: 587,
+    // secure: false,
+    service: 'gmail',
+    auth: {
+        user: 'ccraftst@gmail.com',
+        pass: 'mennaandreemmr'
+    }
 });
 
 router.post('/', checkFunc.checkNotAuth, async(req, res) => {
@@ -93,8 +105,22 @@ router.post('/', checkFunc.checkNotAuth, async(req, res) => {
 
         user = await user.save();
 
-        req.flash('message', 'You registered successfully'); //success for green alert ^_^
+        await transporter.sendMail({
+            from: "ccraftst@gmail.com", // sender address
+            to: `${req.body.email}`, // list of receivers
+            subject: "C-Craft Confirmation e-mail", // Subject line
+            html: `<div style="background-color: rgb(83, 44, 83, 0.6);text-align:center; height: fit-content;width: fit-content; border-radius:5px;
+            display: flex;justify-content: space-between;align-items: center;flex-direction: column; padding:25px 25px 25px 25px;color:white;"><h3 style=" font-family: Arial, 'Arial Narrow', 'Franklin Gothic Medium', sans-serif; font-weight:bolder;">
+            Hi ${req.body.username}<br/>
+            Click here to verify your e-mail <br/>
+            </h3>
+
+            <a href=""><button style=" background:linear-gradient(to bottom, #3366cc 0%, #990099 100%);border-radius:5px; border:none;
+            width:fit-content;height:fit-content;margin:20px 30px 30px 30px; padding:20px 20px 20px 20px; color: #aaa; ">Verify</button></a></div>`, // html body
+        })
+        req.flash('message', 'You registered successfully, Check your email.'); //success for green alert ^_^
         res.redirect('/login');
+
     } catch (err) {
         return console.log(err);
     }

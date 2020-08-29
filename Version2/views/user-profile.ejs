@@ -10,7 +10,7 @@
     </div><br>
   <% } %>
   <% if (user.image !='err') { %>
-            <img class="card-img-left" src="/images/user-pic/<%= user.image %>" style="height:70px;width:70px;border-radius:50%">
+            <img class="card-img-left" src="/images/user-pic/<%= user.image %>" alt='not found'style="height:70px;width:70px;border-radius:50%" >
             <% } else { %>
             <img class="card-img-left" src="/images/<%= user.gender %>.png" style="height:70px;width:70px;border-radius:50%" >
             <% } %>
