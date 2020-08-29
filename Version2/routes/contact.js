@@ -1,7 +1,9 @@
+//process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 const router = require('express').Router();
 const nodemailer = require('nodemailer');
 const checkFunc = require('../functions');
 const bcrypt = require('bcryptjs');
+
 router.get('/', (req, res) => {
     return res.render('contact', {
         title: 'Contact Us',
@@ -13,27 +15,36 @@ router.get('/', (req, res) => {
 });
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com', //smtp.gmail.com
-    port: 587,
-    secure: false,
+    // host: 'smtp.gmail.com', //smtp.gmail.com
+    // port: 587,
+    // secure: false,
     service: 'gmail',
     auth: {
-        user: 'reem.atalah1@gmail.com',
-        pass: ''
+        user: 'ccraftst@gmail.com',
+        pass: 'mennaandreemmr'
     }
 });
 
 // // POST contact us page
-router.post('/', (req, res) => {
-    transporter.sendMail({
-        from: 'reem.atalah1@gmail.com',
-        to: 'mennaahmedali77@gmail.com',
-        subject: 'Sending Email using Node.js',
-        text: 'That was easy!'
-    });
+router.post('/', async(req, res) => {
+    try {
+        await transporter.sendMail({
+            from: `${req.body.username}👻< ${req.body.username}>`, // sender address
+            to: "mennaahmedali77@gmail.com, reem.atalah1@gmail.com", // list of receivers
+            subject: `${req.body.subject}`, // Subject line
+            //html: "<b>New Contact Message :</b>", // html body
+            text: `${req.body.message}` // plain text body
+
+        })
+
+    } catch (err) {
+        console.log(err)
+
+    }
     req.flash('message', 'Your message has been sent!');
     res.redirect('/contact');
 
 });
+
 
 module.exports = router;
