@@ -1,4 +1,4 @@
-process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
+//process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 const router = require('express').Router();
 const User = require('../models/User');
 const { body, validationResult } = require('express-validator');
@@ -104,9 +104,9 @@ router.post('/', checkFunc.checkNotAuth, async(req, res) => {
         user.password = hashedPassword;
 
         user = await user.save();
-        id= user._id;
+        id = user._id;
         await transporter.sendMail({
-            from: "ccraftst@gmail.com", // sender address
+            from: "ccraftsa@gmail.com", // sender address
             to: `${req.body.email}`, // list of receivers
             subject: "C-Craft Confirmation e-mail", // Subject line
             html: `<div style="background-color: rgb(83, 44, 83, 0.6);text-align:center; height: fit-content;width: fit-content; border-radius:5px;
@@ -118,7 +118,7 @@ router.post('/', checkFunc.checkNotAuth, async(req, res) => {
             <a href='http://localhost:8080/confirmation/${req.body.username}' ><button style=" background:linear-gradient(to bottom, #3366cc 0%, #990099 100%);border-radius:5px; border:none;
             width:fit-content;height:fit-content;margin:20px 30px 30px 30px; padding:20px 20px 20px 20px; color: #aaa; ">Verify</button></a></div>`, // html body
         })
-        req.flash('message', 'You registered successfully, Check your email.'); 
+        req.flash('message', 'You registered successfully, Check your email.');
         res.redirect('/login');
 
     } catch (err) {
