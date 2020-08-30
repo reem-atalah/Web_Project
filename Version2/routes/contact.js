@@ -15,9 +15,9 @@ router.get('/', (req, res) => {
 });
 
 const transporter = nodemailer.createTransport({
-    // host: 'smtp.gmail.com', //smtp.gmail.com
-    // port: 587,
-    // secure: false,
+    host: 'smtp.gmail.com', //smtp.gmail.com
+    port: 587,
+    secure: false,
     service: 'gmail',
     auth: {
         user: 'ccraftsa@gmail.com',

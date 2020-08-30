@@ -109,6 +109,7 @@ div {
 .cont-container {
     background-image: url(../images/contacts.jpg);
     background-size: cover;
+    height: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -119,7 +120,7 @@ div {
     padding: 40px 25px 40px 25px;
     margin-top: 10%;
     margin-bottom: 5%;
-    /* height: 75vh; */
+    height: fit-content;
     background-color: rgba(45, 6, 66, 0.7);
     border-radius: 5px;
     display: flex;
@@ -234,33 +235,36 @@ footer h4 {
 .contact-links i:hover {
     color: rgb(116, 12, 185);
 }
-#alerty{
+
+#alerty {
     background-color: blueviolet;
     font-size: 18.3px;
-    font-family:Arial, 'Arial Narrow','Franklin Gothic Medium',   sans-serif;
+    font-family: Arial, 'Arial Narrow', 'Franklin Gothic Medium', sans-serif;
     flex-direction: row;
     border-radius: 2px;
     padding-left: 5px;
 }
+
 #close {
-    float:right;
-    display:inline-block;
-    padding:2px 5px;
+    float: right;
+    display: inline-block;
+    padding: 2px 5px;
     background-color: blueviolet;
     border: none;
     outline: none;
     transition: 0.3s;
 }
+
 #close:hover {
-    float:right;
-    display:inline-block;
-    padding:2px 5px;
-    color:white;
+    float: right;
+    display: inline-block;
+    padding: 2px 5px;
+    color: white;
 }
-#msg{
+
+#msg {
     background-color: blueviolet;
     border: none;
     outline: none;
     font-size: 17px;
-
 }

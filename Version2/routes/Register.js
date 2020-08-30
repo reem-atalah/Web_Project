@@ -112,7 +112,7 @@ router.post('/', checkFunc.checkNotAuth, async(req, res) => {
             html: `<div style="background-color: rgb(83, 44, 83, 0.6);text-align:center; height: fit-content;width: fit-content; border-radius:5px;
             display: flex;justify-content: space-between;align-items: center;flex-direction: column; padding:25px 25px 25px 25px;color:white;"><h3 style=" font-family: Arial, 'Arial Narrow', 'Franklin Gothic Medium', sans-serif; font-weight:bolder;">
             Hi ${req.body.username}<br/>
-            Click here to verify your e-mail <br/>
+            Click here to verify your account <br/>
             </h3>
 
             <a href='http://localhost:8080/confirmation/${req.body.username}' ><button style=" background:linear-gradient(to bottom, #3366cc 0%, #990099 100%);border-radius:5px; border:none;
