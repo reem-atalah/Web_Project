@@ -62,6 +62,15 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
+/* .item {
+    cursor: pointer;
+} */
+
+.item:hover {
+    color: rgb(0, 0, 0, 0.3);
+}
+
 .course-list {
     position: absolute;
     display: none;
@@ -95,98 +104,105 @@
     height: 100%;
 }
 
-
-/* 
-body {
-    background-image: url(../images/contacts.jpg);
-    background-size: cover;
-} */
-
-div {
-    text-align: center;
-}
-
-.cont-container {
-    background-image: url(../images/contacts.jpg);
-    background-size: cover;
+.section1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url("../images/bradcam2.png");
+    width: 100%;
+    height: 80vh;
+}
+
+.card {
+    margin: 5vh 5vh 5vh 5vh;
+}
+
+.row {
+    padding: 15px 25px 25px 25px;
+    display: flex;
+    flex-direction: row;
+    height: fit-content
+}
+
+.card-img {
+    margin: 20px 25px 25px 20px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.card-text {
+    margin: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: row;
     height: fit-content;
 }
 
-.cont {
-    padding: 40px 25px 40px 25px;
-    margin-top: 10%;
-    margin-bottom: 5%;
-    /* height: 75vh; */
-    background-color: rgba(45, 6, 66, 0.7);
+ul {
+    margin-right: 60px;
+    list-style: none;
+}
+
+.card-text big {
+    font-weight: bold;
+}
+
+.card-text img {
+    margin: 0px 10px 0px 10px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#enroll {
+    height: fit-content;
+    width: 10vw;
+    margin-left: 35px;
+    margin-top: 35px;
+    padding: 10px 10px 10px 10px;
+    background-color: rgba(73, 35, 104, 0.8);
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    cursor: pointer;
     border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+#enroll:hover {
+    background-color: rgb(93, 9, 126, 0.5);
+}
+
+.section2 {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-
+    align-content: space-around;
+    background-image: url("../images/bradcam2.png");
+    width: 100%;
+    height: fit-content;
 }
 
-.cont h2 {
-    color: rgb(165, 30, 255);
-    text-align: center;
-    font-size: 1.2rem;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 15px;
+.Syllabus h1 {
+    padding-top: 5vh;
+    padding-left: 10vh;
+    color: rgb(187, 185, 185);
 }
 
-input {
-    border: none;
-    border-radius: 5px;
-    width: 270px;
-    height: 30px;
-    padding-left: 1%;
-    outline: none;
+.cards123,
+.cards456,
+.cards789,
+.cards10112,
+.card13 {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
 }
 
-textarea {
-    border: none;
-    padding-left: 1%;
-    border-radius: 8px;
-    padding-top: 1%;
-    font-size: 15px;
-    width: 270px;
-    outline: none;
-}
-
-input,
-textarea {
-    background: rgb(184, 180, 180);
-}
-
-input:hover {
-    border: 1.5px solid #b400cc;
-}
-
-textarea:hover {
-    border: 1.5px solid #b400cc;
-}
-
-button {
-    margin-bottom: 10px;
-    margin-top: 10px;
-    padding: 10px;
-    width: 50%;
-    cursor: pointer;
-    border: none;
-    border-radius: 4px;
-    outline: none;
-    background-color: rgb(165, 30, 255);
-    color: white;
-    transition: 0.3s;
-}
-
-button:hover {
-    color: rgb(165, 30, 255);
-    background-color: white;
-    border: 2px solid white;
+.card-header {
+    font-size: 1.7rem;
 }
 
 .footer {
@@ -233,34 +249,4 @@ footer h4 {
 
 .contact-links i:hover {
     color: rgb(116, 12, 185);
-}
-#alerty{
-    background-color: blueviolet;
-    font-size: 18.3px;
-    font-family:Arial, 'Arial Narrow','Franklin Gothic Medium',   sans-serif;
-    flex-direction: row;
-    border-radius: 2px;
-    padding-left: 5px;
-}
-#close {
-    float:right;
-    display:inline-block;
-    padding:2px 5px;
-    background-color: blueviolet;
-    border: none;
-    outline: none;
-    transition: 0.3s;
-}
-#close:hover {
-    float:right;
-    display:inline-block;
-    padding:2px 5px;
-    color:white;
-}
-#msg{
-    background-color: blueviolet;
-    border: none;
-    outline: none;
-    font-size: 17px;
-
 }
