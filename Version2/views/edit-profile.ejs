@@ -1,6 +1,5 @@
 <%- include("layouts/header") %>
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 </head>
 <div class="main_container">
   <div class="card-edit">
@@ -11,34 +10,34 @@
         <button id='close' onclick='this.parentNode.parentNode.removeChild(this.parentNode); return false;'>x</button>
     </div><br>
   <% } %>
-      <form action="/user-profile/<%= user.username %>/edit-profile" method="POST" enctype="multipart/form-data"> 
+      <form action="/edit-profile/<%= user.username %>" method="POST" enctype="multipart/form-data"> 
         <% if (user.image !='err') { %>
         <div class="images">
             <img class="card-img-left" src="/images/user-pic/<%= user.image %>" style="height:135px;width:130px;border-radius:50%">
-            <!-- <img class="grey"src="/images/grey.png" style="height:135px;width:130px;border-radius:50%"> -->
+            <img class="grey_img"src="/images/grey.png" style="height:135px;width:130px;border-radius:50%">
             <% } else { %>
             <img class="card-img-left" src="/images/<%= user.gender %>.png" style="height:135px;width:130px;border-radius:50%" >
-           <!-- <img class="grey"src="/images/grey.png" style="height:135px;width:130px;border-radius:50%"> -->
+           <img class="grey_img"src="/images/grey.png" style="height:135px;width:130px;border-radius:50%">
 
             <% } %>
             <!-- <i id="camera" class="fa fa-camera" aria-hidden="true"style="font-size:30px;"></i> <br> -->
-            <div class="file-field input-field">
+            <div id="file"class="file-field input-field">
                 <div class="btn grey">
                     <span>Choose the image</span>
                 <input class="file-image"name='userImg' id="userImg"type="file" >
                 </div>
                 <div class="file-path-wrapper">
-                    <input type="hidden"name="input_image"id="input_image" class="file-path validate" type="text" 
-                    >
+                    <input name="input_image"id="input_image" class="file-path validate" type="text" 
+                    placeholder="File Path">
                   </div>
             </div>
         </div>
         
             <div class="card-bodyy">
-                <input type="text" name="input_name" id="input_name"class="card-title" placeholder="<%= user.username %>">  
+                <input type="text" name="input_name" id="input_name"class="card-title" placeholder="<%= user.username %>" autocomplete="off">  
                 <ul>
                     <li class="card-text">
-                        <input type="text"name="input_bio"id="input_bio" placeholder="<%= user.bio %>">
+                        <input type="text"name="input_bio"id="input_bio" placeholder="<%= user.bio %>"autocomplete="off">
                     </li>
                     
             <button type="submit" class="btn btn-primary" value="upload">Apply Changes</button>

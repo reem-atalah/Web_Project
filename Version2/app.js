@@ -102,7 +102,7 @@ app.use('/Machine', require('./routes/Machine'));
 app.use('/Embedded', require('./routes/Embedded'));
 app.use('/Web', require('./routes/Web'));
 app.use('/Graphics', require('./routes/Graphics'));
-// app.use('/edit-profile', require('./routes/edit-profile'));
+app.use('/edit-profile', require('./routes/edit-profile'));
 app.use('/logout', require('./routes/logout'));
 app.use('/materials', require('./routes/materials'));
 

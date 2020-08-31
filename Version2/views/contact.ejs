@@ -13,10 +13,10 @@
 <% } %>
     <form class="contact_form" action="/contact" method="POST">
         
-        <input name="username"type="text" id="N"placeholder="Your Name" value="" required ><br><br>
-        <input name="email"type="text" id="Email"placeholder="Email" value=""required> <br><br>
-        <input name="subject" type="text" id="Sub" placeholder="Subject"value=""required> <br><br>
-        <textarea name="message" id="message" rows="9" cols="32" placeholder="Please leave your message here." required></textarea> <br><br>
+        <input name="username"type="text" id="N"placeholder="Your Name" value="" required autocomplete="off"><br><br>
+        <input name="email"type="text" id="Email"placeholder="Email" value=""required autocomplete="off"> <br><br>
+        <input name="subject" type="text" id="Sub" placeholder="Subject"value=""required autocomplete="off"> <br><br>
+        <textarea name="message" id="message" rows="9" cols="32" placeholder="Please leave your message here." required autocomplete="off"></textarea> <br><br>
         <button type="submit">Submit</button> <br>
     </form>
     

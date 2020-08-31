@@ -17,7 +17,7 @@
 
 .nav-contents-right {
     position: relative;
-    width: 20vw;
+    width: 44vw;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -193,7 +193,7 @@ input:focus {
 .username i {
     position: absolute;
     left: 0;
-    top: 8px;
+    top: 9px;
     padding: 9px 4px 17px;
     background-color: #aaa;
     color: #fff;
@@ -208,7 +208,7 @@ input:focus {
 .password i {
     position: absolute;
     left: 0;
-    top: 8px;
+    top: 9px;
     height: fit-content;
     padding: 9px 4px 17px;
     background-color: #aaa;

@@ -17,7 +17,7 @@
 
 .nav-contents-right {
     position: relative;
-    width: 20vw;
+    width: 44vw;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -139,35 +139,37 @@ div {
 }
 
 input {
-    border: none;
+    border:rgb(184, 180, 180);
     border-radius: 5px;
     width: 270px;
     height: 30px;
-    padding-left: 1%;
+    padding-left: 2%;
     outline: none;
+    transition: 0.2s;
 }
 
 textarea {
-    border: none;
-    padding-left: 1%;
+    outline: none;
+    padding-left: 2%;
     border-radius: 8px;
     padding-top: 1%;
     font-size: 15px;
     width: 270px;
-    outline: none;
+    border:rgb(184, 180, 180);
+    transition: 0.2s;
 }
 
 input,
 textarea {
-    background: rgb(184, 180, 180);
+    background: rgb(212, 206, 206);
 }
 
 input:hover {
-    border: 1.5px solid #b400cc;
+    border: solid #b400cc;
 }
 
 textarea:hover {
-    border: 1.5px solid #b400cc;
+    border: solid #b400cc;
 }
 
 button {

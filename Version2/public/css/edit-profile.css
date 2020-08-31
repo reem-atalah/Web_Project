@@ -17,9 +17,9 @@
 
 .nav-contents-right {
     position: relative;
-    width: 20vw;
+    width: 44vw;
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     align-items: center;
 }
 
@@ -135,17 +135,21 @@ ul {
     background-color: black;
 }
 
-.grey {
+.grey_img {
     position: absolute;
     opacity: 50%;
-    left: 45%;
+    left: 44.9%;
+}
+.grey {
+    position: absolute;
+    left: 30%;
+}
+#userImg{
+    margin: 10%;
 }
 
-.file-image {
-    /* position: absolute;  */
-    /* left: 45%; */
-    /* background-color: rgba(40, 31, 192, 0.7); */
-    /* visibility: hidden; */
+#input_image{
+    margin: 10%;
 }
 
 #camera {
@@ -240,3 +244,4 @@ footer h4 {
     outline: none;
     font-size: 17px;
 }
+
