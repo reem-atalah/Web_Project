@@ -118,7 +118,7 @@ router.post('/', checkFunc.checkNotAuth, async(req, res) => {
             <a href='http://localhost:8080/confirmation/${req.body.username}' ><button style=" background:linear-gradient(to bottom, #3366cc 0%, #990099 100%);border-radius:5px; border:none;
             width:fit-content;height:fit-content;margin:20px 30px 30px 30px; padding:20px 20px 20px 20px; color: #aaa; ">Verify</button></a></div>`, // html body
         })
-        req.flash('message', 'You registered successfully, Check your email.');
+        req.flash('message', 'You registered successfully, Check your verification email.');
         res.redirect('/login');
 
     } catch (err) {

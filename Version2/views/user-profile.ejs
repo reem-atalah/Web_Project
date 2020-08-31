@@ -23,12 +23,12 @@
                     <% if (user.Courses.length === 0) { %>
                     <li class="card-text"><b>Courses:</b> You are not enrolled in any courses yet </li>
                     <% } else if (user.Courses.length === 1) { %>
-                    <li class="card-text"><b>Courses:</b> <%= user.Courses[0].Name %></li>
+                    <li class="card-text"><b>Courses:</b> <%= user.Courses[0] %></li>
                     <% } else { %>
                     <li class="card-text"><big><b>Courses:</b></big><br>
                         <ul>
-                            <% user.Courses.forEach(course => { %>
-                            <li class="card-text"><%= course.Name %></li>
+                            <% user.Courses.forEach(course => { %> 
+                            <li class="card-text"><a href="/<%= course%>"> <%= course %></a></li>
                             <% }); %>
                         </ul>
                     </li>
