@@ -11,8 +11,8 @@ const nodemailer = require('nodemailer');
 const cron = require("node-cron");
 const checkFunc = require('./functions');
 const pass_conf = require('./passport-config');
-const multer=require('multer');
-const upload= require('express-fileupload');
+const multer = require('multer');
+const upload = require('express-fileupload');
 const app = express();
 const port = 8080;
 
@@ -41,8 +41,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //dynamic header
-app.use((req,res, next)=>{
-    res.locals.isAuthenticatedd =req.isAuthenticated();
+app.use((req, res, next) => {
+    res.locals.isAuthenticatedd = req.isAuthenticated();
     next();
 })
 
@@ -104,6 +104,7 @@ app.use('/Web', require('./routes/Web'));
 app.use('/Graphics', require('./routes/Graphics'));
 // app.use('/edit-profile', require('./routes/edit-profile'));
 app.use('/logout', require('./routes/logout'));
+app.use('/materials', require('./routes/materials'));
 
 app.use('/deleteAll', async(req, res) => {
     User.deleteMany({}, err => {

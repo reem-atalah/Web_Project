@@ -1,4 +1,4 @@
-process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
+//process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 const router = require('express').Router();
 const nodemailer = require('nodemailer');
 const checkFunc = require('../functions');

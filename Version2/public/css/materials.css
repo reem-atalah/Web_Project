@@ -24,7 +24,6 @@
 }
 
 .nav-contents-right a {
-    /* color: #f9f9f9; */
     color: #aaa;
     text-decoration: none;
     margin: 0px 20px 0px 0px;
@@ -63,6 +62,11 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
+/* .item {
+    cursor: pointer;
+} */
+
 .item:hover {
     color: rgb(0, 0, 0, 0.3);
 }
@@ -100,77 +104,115 @@
     height: 100%;
 }
 
-.main_container {
+.section1 {
     display: flex;
     align-items: center;
     justify-content: center;
     background-image: url("../images/bradcam2.png");
     width: 100%;
-    height: 100vh;
+    height: 80vh;
 }
 
 .card {
-    height: fit-content;
-    margin: 20px 20px 20px 20px;
-    padding: 10px 5px 10px 5px;
-    min-width: 40vw;
-    background-color: rgba(198, 197, 218, 0.7);
+    margin: 5vh 5vh 5vh 5vh;
 }
 
-.btn {
-    background: linear-gradient(to bottom, #3366cc 0%, #990099 100%);
+.row {
+    padding: 10px 25px 25px 25px;
+    display: flex;
+    flex-direction: row;
+    height: fit-content
+}
+
+.card-img {
+    margin: 20px 25px 25px 20px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.card-text {
+    margin: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
 }
 
 ul {
-    list-style-type: none;
+    margin-right: 60px;
+    list-style: none;
 }
 
-#tl {
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 700;
-    font-size: 1.3rem;
-    line-height: 1rem;
-    background: #CA4246;
-    background-color: #CA4246;
-    background: conic-gradient( #CA4246 16.666%, #E16541 16.666%, #E16541 33.333%, #F18F43 33.333%, #F18F43 50%, #8B9862 50%, #8B9862 66.666%, #476098 66.666%, #476098 83.333%, #A7489B 83.333%);
-    background-size: 57%;
-    background-repeat: repeat;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.card-text big {
+    font-weight: bold;
+}
+
+.card-text img {
+    margin: 0px 10px 0px 10px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#enroll {
+    height: fit-content;
+    width: 10vw;
+    margin-left: 35px;
+    margin-top: 35px;
+    padding: 10px 10px 10px 10px;
+    background-color: rgba(73, 35, 104, 0.8);
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
     cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+    border: none;
 }
 
-.card-title {
-    background: linear-gradient(to right, #467088 10%, #3a4688 33.333%, #8d1caf 40%);
-    background-size: 57%;
-    background-repeat: repeat;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+#enroll:hover {
+    background-color: rgb(93, 9, 126, 0.5);
 }
 
-#tl:hover {
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 700;
-    font-size: 1.1rem;
-    line-height: 1rem;
-    background: #93b349;
-    background-color: #74ca42;
-    background: conic-gradient( #b18788 16.666%, #312f2f 16.666%, #968d8a 33.333%, #F18F43 33.333%, #5a2903 50%, #2f3a0a 50%, #495e07 66.666%, #2a3a5a 66.666%, #001e5e 83.333%, #46153f 83.333%);
-    background-size: 57%;
-    background-repeat: repeat;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    cursor: pointer;
+.section2 {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    background-image: url("../images/bradcam2.png");
+    width: 100%;
+    height: 90vh;
+}
+
+.Materials h1 {
+    margin-top: 6vh;
+    padding-top: 6vh;
+    padding-left: 10vh;
+    color: rgb(187, 185, 185);
+}
+
+.cards123,
+.cards456,
+.cards789,
+.cards10112,
+.card13 {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+}
+
+.card-header {
+    font-size: 1.7rem;
 }
 
 .footer {
-    position: absolute;
     width: 100%;
     color: #aaa;
     font-size: 1rem;
     font-family: Arial, Helvetica, sans-serif;
     bottom: 0;
-    padding: 20px 0px 10px;
+    padding: 20px;
     text-align: center;
     height: fit-content;
     background-image: url("../images/footer_bg.png");
@@ -208,37 +250,4 @@ footer h4 {
 
 .contact-links i:hover {
     color: rgb(116, 12, 185);
-}
-
-#alerty {
-    background-color: blueviolet;
-    font-size: 18.3px;
-    font-family: Arial, 'Arial Narrow', 'Franklin Gothic Medium', sans-serif;
-    flex-direction: row;
-    border-radius: 2px;
-    padding-left: 5px;
-}
-
-#close {
-    float: right;
-    display: inline-block;
-    padding: 2px 5px;
-    background-color: blueviolet;
-    border: none;
-    outline: none;
-    transition: 0.3s;
-}
-
-#close:hover {
-    float: right;
-    display: inline-block;
-    padding: 2px 5px;
-    color: white;
-}
-
-#msg {
-    background-color: blueviolet;
-    border: none;
-    outline: none;
-    font-size: 17px;
 }
