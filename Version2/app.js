@@ -14,15 +14,16 @@ const pass_conf = require('./passport-config');
 const multer = require('multer');
 const upload = require('express-fileupload');
 const app = express();
-const port = 8080;
+require('dotenv/config');
+const port = process.env.PORT || 8080;
 
 
-mongoose.connect('mongodb://localhost/student_activity', { useNewUrlParser: true, useUnifiedTopology: true });
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error: '));
-db.once('open', () => {
-    console.log('connected to DB');
-});
+// mongoose.connect('mongodb://localhost/student_activity', { useNewUrlParser: true, useUnifiedTopology: true });
+// const db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error: '));
+// db.once('open', () => {
+//     console.log('connected to DB');
+// });
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
