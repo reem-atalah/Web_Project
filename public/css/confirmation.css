@@ -1,5 +1,4 @@
-
-  * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -17,18 +16,17 @@
 }
 
 .nav-contents-right {
+    left: 50vw;
     position: relative;
-    width: 44vw;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
 .nav-contents-right a {
-    /* color: #f9f9f9; */
     color: #aaa;
     text-decoration: none;
-    margin: 0px 10px 0px 0px;
+    margin: 0px 30px 0px 0px;
     font-size: 1.3rem;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -39,7 +37,8 @@
 
 .nav-contents {
     position: relative;
-    width: 80vw;
+    /* width: 90vw; */
+    right: 5vw;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -97,14 +96,14 @@
     height: 100%;
 }
 
-  body{
-   background-image: url(../images/contacts.jpg);
-   background-size: cover;
- }
- 
-div{text-align: center;
+body {
+    background-image: url(../images/contacts.jpg);
+    background-size: cover;
 }
 
+div {
+    text-align: center;
+}
 
 .cont-container {
     height: 80vh;
@@ -137,7 +136,6 @@ div{text-align: center;
     margin-bottom: 15px;
 }
 
-
 .cont h2 {
     color: rgb(165, 30, 255);
     text-align: center;
@@ -146,7 +144,7 @@ div{text-align: center;
     margin-bottom: 15px;
 }
 
-.cont a{
+.cont a {
     color: #aaa;
 }
 
@@ -166,6 +164,7 @@ div{text-align: center;
     align-items: center;
     flex-direction: column;
 }
+
 .contact-links i {
     padding: 25px;
     padding-top: 0;
@@ -177,33 +176,36 @@ div{text-align: center;
 .contact-links i:hover {
     color: rgb(116, 12, 185);
 }
-#alerty{
+
+#alerty {
     background-color: blueviolet;
     font-size: 18.3px;
-    font-family:Arial, 'Arial Narrow','Franklin Gothic Medium',   sans-serif;
+    font-family: Arial, 'Arial Narrow', 'Franklin Gothic Medium', sans-serif;
     flex-direction: row;
     border-radius: 2px;
     padding-left: 5px;
 }
+
 #close {
-    float:right;
-    display:inline-block;
-    padding:2px 5px;
+    float: right;
+    display: inline-block;
+    padding: 2px 5px;
     background-color: blueviolet;
     border: none;
     outline: none;
     transition: 0.3s;
 }
+
 #close:hover {
-    float:right;
-    display:inline-block;
-    padding:2px 5px;
-    color:white;
+    float: right;
+    display: inline-block;
+    padding: 2px 5px;
+    color: white;
 }
-#msg{
+
+#msg {
     background-color: blueviolet;
     border: none;
     outline: none;
     font-size: 17px;
-
 }
