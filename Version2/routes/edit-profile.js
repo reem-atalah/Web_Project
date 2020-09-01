@@ -50,7 +50,7 @@ router.get('/:username', checkFunc.checkAuth, async(req, res) => {
 });
 
 
-router.post('/:username', checkFunc.checkAuth, async (req, res) => {
+router.post('/:username', checkFunc.checkAuth, async(req, res) => {
 
     try {
         const user = await User.findOne({ username: req.params.username });
@@ -87,7 +87,7 @@ router.post('/:username', checkFunc.checkAuth, async (req, res) => {
         //     }
         // }
 
-        upload(req, res, async (err) => {
+        upload(req, res, async(err) => {
             if (err) {
                 req.flash('message', 'Error in uploading image');
                 res.redirect('/user-profile/' + USERNAME);
@@ -111,7 +111,7 @@ router.post('/:username', checkFunc.checkAuth, async (req, res) => {
                 user.username = req.body.input_name;
 
             }
-            user=await user.save()
+            await user.save()
 
             res.redirect('/user-profile/' + user.username);
         });

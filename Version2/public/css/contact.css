@@ -107,7 +107,8 @@ div {
 }
 
 .cont-container {
-    background-image: url(../images/contacts.jpg);
+    background-image: url("../images/bradcam2.png");
+    /* background-image: url(../images/contacts.jpg); */
     background-size: cover;
     height: fit-content;
     display: flex;
@@ -121,7 +122,8 @@ div {
     margin-top: 10%;
     margin-bottom: 5%;
     height: fit-content;
-    background-color: rgba(45, 6, 66, 0.7);
+    /* background-color: rgba(45, 6, 66, 0.7); */
+    background-color: rgba(198, 197, 218, 0.7);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -165,11 +167,14 @@ textarea {
 }
 
 input:hover {
-    border: solid #b400cc;
+    /* border: solid #b400cc; */
+    border: solid  rgb(165, 30, 255);
+
 }
 
 textarea:hover {
-    border: solid #b400cc;
+    /* border: solid #b400cc; */
+    border: solid  rgb(165, 30, 255);
 }
 
 button {
@@ -181,16 +186,17 @@ button {
     border: none;
     border-radius: 4px;
     outline: none;
-    background-color: rgb(165, 30, 255);
+    /* background-color: rgb(165, 30, 255); */
+    background: linear-gradient(to bottom, #3366cc 0%, #990099 100%);
     color: white;
-    transition: 0.3s;
+    /* transition: 0.3s; */
 }
 
-button:hover {
+/* button:hover {
     color: rgb(165, 30, 255);
     background-color: white;
     border: 2px solid white;
-}
+} */
 
 .footer {
     width: 100%;

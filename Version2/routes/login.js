@@ -63,13 +63,14 @@ router.get('/', checkFunc.checkNotAuth, (req, res) => {
 router.post('/', function(req, res, next) {
     passport.authenticate('local', function(err, user, info) {
         if (err) { return next(err); }
-        // if (user.username !== req.body.username) {
-        //     req.flash('message', 'Invalid user name for given password')
-        //     return res.redirect('/login');
-        // } else if (bcrypt.compare(req.body.password, user.password)) {
+        if (user.username !== req.body.username) {
+            req.flash('message', 'Invalid user name for given password')
+            return res.redirect('/login');
+        }
+        //  if (bcrypt.compare(req.body.password, user.password)) {
         //     req.flash('message', 'Invalid password for given user name')
         //     return res.redirect('/login');
-        //} 
+        // } 
         if (!user) {
             req.flash('message', "Couldn't find such a user, please sign up")
             return res.redirect('/register');

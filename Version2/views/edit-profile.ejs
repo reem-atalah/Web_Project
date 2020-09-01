@@ -1,6 +1,25 @@
 <%- include("layouts/header") %>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 </head>
+<style>
+    ::placeholder {
+  color: rgb(165, 30, 255);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: rgb(165, 30, 255);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: rgb(165, 30, 255);
+
+}
+#input_name, #input_bio, #input_image :focus {
+    border-bottom-color: rgb(165, 30, 255);
+}
+
+</style>
 <div class="main_container">
   <div class="card-edit">
     <% if(message.length >0){ %>
@@ -40,7 +59,7 @@
                         <input type="text"name="input_bio"id="input_bio" placeholder="<%= user.bio %>"autocomplete="off">
                     </li>
                     
-            <button type="submit" class="btn btn-primary" value="upload">Apply Changes</button>
+            <button id="apply"type="submit" class="btn btn-primary" value="upload">Apply Changes</button>
                 </ul>
             </div>
       </form>

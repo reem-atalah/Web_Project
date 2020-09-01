@@ -105,7 +105,8 @@ a {
 }
 
 .Reg-container {
-    background-image: url(../images/contacts.jpg);
+    background-image: url("../images/bradcam2.png");
+    /* background-image: url(../images/contacts.jpg); */
     background-size: cover;
     height: 100vh;
     display: flex;
@@ -118,7 +119,8 @@ a {
     margin-top: 10%;
     margin-bottom: 5%;
     height: fit-content;
-    background-color: rgba(45, 6, 66, 0.7);
+    /* background-color: rgba(45, 6, 66, 0.7); */
+    background-color: rgba(198, 197, 218, 0.7);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -134,47 +136,10 @@ a {
     margin-bottom: 15px;
 }
 
-small {
-    color: #aaa;
-}
 
 small a {
     text-decoration: none;
 }
-
-.footer {
-    width: 100%;
-    color: #aaa;
-    font-size: 1rem;
-    font-family: Arial, Helvetica, sans-serif;
-    bottom: 0;
-    padding: 20px 0px 10px;
-    text-align: center;
-    height: fit-content;
-    background-image: url("../images/footer_bg.png");
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-}
-
-footer h1 {
-    font-size: 1rem;
-    margin-bottom: 10px;
-}
-
-footer h4 {
-    font-size: 1rem;
-}
-
-.contact-links {
-    width: fit-content;
-    height: fit-content;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-}
-
 
 /* form {
     position: relative;
@@ -199,23 +164,24 @@ input {
     transition: all 0.3s ease;
     border: none;
     width: 290px;
-    height: 40px;
+    height: 43px;
     outline: none;
     padding-left: 5px;
     padding-top: 7.5%;
-    font-size: 17px;
-    padding-bottom: 3px;
+    font-size: 16px;
+    padding-bottom: 6px;
     border-radius: 3px;
-    border-bottom: 2px solid grey;
+    border-bottom: 2px solid rgb(98, 24, 148);
 }
 
 label {
     /* font-size: small; */
     /* color: grey; */
-    color: #aaa;
+    /* color: #aaa; */
+    color: rgb(98, 24, 148);
     position: absolute;
-    bottom: 13%;
-    height: 36px;
+    bottom: 20%;
+    /* height: 36px; */
     padding-left: 5px;
     pointer-events: none;
     border-bottom: 1px solid grey;
@@ -313,16 +279,16 @@ select {
     height: 40px;
     font-size: 0.9em;
     /* color: rgb(128, 128, 128); */
-    color: #aaa;
+    /* color: #aaa; */
+    color: rgb(98, 24, 148);
     /* padding: 8px; */
     outline: none;
     border: none;
     /* background-color: rgba(103, 71, 121, 0.5); */
-    background-color: rgba(112, 83, 129, 0.5);
+    background-color: rgba(144, 101, 168, 0.5);
     left: 5px;
     border-radius: 3px;
-    border-bottom: 2px solid grey;
-}
+    border-bottom: 2px solid rgb(98, 24, 148);}
 
 option {
     color: #aaa;
@@ -340,7 +306,8 @@ option {
     border: none;
     border-radius: 4px;
     outline: none;
-    background-color: rgb(165, 30, 255);
+    background: linear-gradient(to bottom, #3366cc 0%, #990099 100%);
+    /* background-color: rgb(165, 30, 255); */
     color: white;
     transition: 0.3s;
 }
@@ -351,23 +318,39 @@ option {
 }
 
 
-/* 
-<<<<<<< HEAD
-#btn:hover {
-=======
-small {
+.footer {
+    width: 100%;
     color: #aaa;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    bottom: 0;
+    padding: 20px 0px 10px;
+    text-align: center;
+    height: fit-content;
+    background-image: url("../images/footer_bg.png");
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
 }
 
-small a {
-    color: rgb(165, 30, 255);
+footer h1 {
+    font-size: 1rem;
+    margin-bottom: 10px;
 }
 
-button:hover {
->>>>>>> 89d6050d7170c69aa3c6dedbabbafae5a8db0343
-    color: rgb(165, 30, 255);
-    background-color: white;
-} */
+footer h4 {
+    font-size: 1rem;
+}
+
+.contact-links {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
 
 .contact-links i {
     padding: 25px;
