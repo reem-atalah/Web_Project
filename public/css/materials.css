@@ -203,6 +203,20 @@ ul {
     align-content: space-around;
 }
 
+ul li a {
+    color: white;
+    outline: none;
+}
+
+ul li a:hover {
+    color: white;
+    text-shadow: 0px 4px 4px rgb(116, 59, 106);
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
 .card-header {
     font-size: 1.7rem;
 }
