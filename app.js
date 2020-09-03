@@ -15,7 +15,7 @@ const multer = require('multer');
 const upload = require('express-fileupload');
 const app = express();
 require('dotenv/config');
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 
 mongoose.connect('mongodb://localhost/student_activity', { useNewUrlParser: true, useUnifiedTopology: true });
@@ -107,22 +107,21 @@ app.use('/edit-profile', require('./routes/edit-profile'));
 app.use('/logout', require('./routes/logout'));
 app.use('/materials', require('./routes/materials'));
 
-//delete all database
-// app.use('/deleteAll', async(req, res) => {
-//     User.deleteMany({}, err => {
-//         if (err) return console.log(err);
-//     });
-//     // return res.render('Home', {
-//     //     title: 'Home',
-//     //     css: 'style',
-//     //     RegisterOrProfileLink: 'Register',
-//     //     RegisterOrProfile: 'Register',
-//     //     loginOrOut: 'login',
-//     //     log:'Log In',
-//     //     message : req.flash('message')
-//     // })
-//     return res.redirect('/');
-// });
+app.use('/deleteAll', async(req, res) => {
+    User.deleteMany({}, err => {
+        if (err) return console.log(err);
+    });
+    // return res.render('Home', {
+    //     title: 'Home',
+    //     css: 'style',
+    //     RegisterOrProfileLink: 'Register',
+    //     RegisterOrProfile: 'Register',
+    //     loginOrOut: 'login',
+    //     log:'Log In',
+    //     message : req.flash('message')
+    // })
+    return res.redirect('/');
+});
 
 
 app.listen(port, err => {

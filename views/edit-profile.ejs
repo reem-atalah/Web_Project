@@ -6,19 +6,15 @@
   color: rgb(165, 30, 255);
   opacity: 1; /* Firefox */
 }
-
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
  color: rgb(165, 30, 255);
 }
-
 ::-ms-input-placeholder { /* Microsoft Edge */
  color: rgb(165, 30, 255);
-
 }
 #input_name, #input_bio, #input_image :focus {
     border-bottom-color: rgb(165, 30, 255);
 }
-
 </style>
 <div class="main_container">
   <div class="card-edit">
@@ -33,11 +29,9 @@
         <% if (user.image !='err') { %>
         <div class="images">
             <img class="card-img-left" src="/images/user-pic/<%= user.image %>" style="height:135px;width:130px;border-radius:50%">
-            <img class="grey_img"src="/images/grey.png" style="height:135px;width:130px;border-radius:50%">
+            
             <% } else { %>
             <img class="card-img-left" src="/images/<%= user.gender %>.png" style="height:135px;width:130px;border-radius:50%" >
-           <img class="grey_img"src="/images/grey.png" style="height:135px;width:130px;border-radius:50%">
-
             <% } %>
             <!-- <i id="camera" class="fa fa-camera" aria-hidden="true"style="font-size:30px;"></i> <br> -->
             <div id="file"class="file-field input-field">
@@ -53,9 +47,10 @@
         </div>
         
             <div class="card-bodyy">
-                <input type="text" name="input_name" id="input_name"class="card-title" placeholder="<%= user.username %>" autocomplete="off">  
+             
                 <ul>
                     <li class="card-text">
+                         <input type="text" name="input_name" id="input_name"class="card-title" placeholder="<%= user.username %>" autocomplete="off">
                         <input type="text"name="input_bio"id="input_bio" placeholder="<%= user.bio %>"autocomplete="off">
                     </li>
                     
@@ -72,5 +67,3 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>  
 
 <%- include("layouts/footer") %>
-
-

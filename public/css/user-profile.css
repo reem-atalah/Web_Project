@@ -106,8 +106,7 @@
     justify-content: center;
     background-image: url("../images/bradcam2.png");
     width: 100%;
-    height: fit-content;
-    padding: 15vh 0 10vh;
+    height: 90vh;
 }
 
 .card {
