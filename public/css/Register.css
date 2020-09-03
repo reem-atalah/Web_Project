@@ -48,6 +48,7 @@
 }
 
 small a {
+    color: rgb(165, 30, 255);
     text-decoration: none;
 }
 
@@ -112,13 +113,18 @@ label {
     transition: transform all 0.3s ease;
 } */
 
-.password span {
+.password span,
+.email span,
+.conf-password span,
+.username-div span 
+ {
     height: 40px;
     position: absolute;
     bottom: 7px;
     left: 5px;
     transition: all 0.3s ease;
 }
+
 
 
 /* #username:focus + .label-name .span-name,

@@ -92,6 +92,7 @@ router.post('/:username', checkFunc.checkAuth, async(req, res) => {
                 req.flash('message', 'Error in uploading image');
                 res.redirect('/user-profile/' + USERNAME);
             }
+            
             // if (req.file === undefined) {
             //     req.flash('message', 'Error: No File Selected')
 
