@@ -4,100 +4,15 @@
     box-sizing: border-box;
 }
 
-.nav_bar {
-    position: fixed;
-    /* height: 16%; */
-    height: 10vh;
-    width: 100vw;
+.navbar {
     background-image: url(../images/bradcam.png);
-    z-index: 1;
-    display: flex;
-    flex-direction: row;
+    background-repeat: none;
+    background-size: cover;
 }
 
-.nav-contents-right {
-    left: 50vw;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.nav-contents-right a {
-    color: #aaa;
-    text-decoration: none;
-    margin: 0px 30px 0px 0px;
-    font-size: 1.3rem;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.nav-contents-right a:hover {
-    color: rgb(0, 0, 0, 0.3);
-}
-
-.nav-contents {
-    position: relative;
-    /* width: 90vw; */
-    right: 5vw;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.nav-contents a {
-    margin: 0px 5px 0px 20px;
-    text-decoration: none;
-    color: #aaa;
-    font-size: 1.3rem;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.nav-contents a:hover {
-    color: rgb(0, 0, 0, 0.3);
-}
-
-.menu {
-    cursor: pointer;
-    color: #aaa;
-    font-size: 1.3rem;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.item:hover {
-    color: rgb(0, 0, 0, 0.3);
-}
-
-.course-list {
-    position: absolute;
-    display: none;
-    padding: 15px 10px 15px 10px;
-    color: #000000;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    width: fit-content;
-    height: fit-content;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
-}
-
-.course-list a {
-    font-size: 1.2rem;
-    color: rgb(0, 0, 0, 0.8);
-    margin: 5px;
-    text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.course-list a:hover {
-    padding: 5px 5px 5px 5px;
-    background-color: rgb(83, 44, 83, 0.5);
-    border-radius: 5px;
-}
-
-.nav_bar img {
-    margin-left: 5%;
-    height: 100%;
+.navbar img {
+    height: 100px;
+    width: 100px;
 }
 
 .main_container {

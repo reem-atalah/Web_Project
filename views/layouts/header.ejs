@@ -13,40 +13,60 @@
     <link rel="icon" href="/images/logo7-removebg-preview.png">
     <title><%= title %></title>
 </head>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a href="/Home"> <img src="/images/logo7-removebg-preview.png" alt="logo"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-<nav class="nav_bar">
-    <a href="/Home"> <img src="/images/logo7-removebg-preview.png" alt="logo"></a>
-    <div class="nav-contents">
-        <div class="menu">
-            <div class="item" onclick="toggle()">Our Courses</div>
-            <div class="course-list">
-                <a href="/Embedded">Embedded System</a>
-                <a href="/Machine">Machine Learning</a>
-                <a href="/Web">Web Development</a>
-                <a href="/Graphics">3D Graphics Design</a>
-            </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item <% if (title === 'Our Courses') { %>active<% } %>">
+            <div class="dropdown show" style="padding-left:0px;">
+         <a class="btn btn-secondary dropdown-toggle" style="cursor: pointer;
+         color: #aaa;
+         font-size: 1.3rem;background-color:rgb(252, 252, 252, 0); border:none; outline:none;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Our Courses
+         </a>
+         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="/Embedded">Embedded System</a>
+            <a class="dropdown-item" href="/Machine">Machine Learning</a>
+            <a class="dropdown-item" href="/Web">Web Development</a>
+            <a class="dropdown-item" href="/Graphics">3D Graphics Design</a>
+         </div>
         </div>
-        <a href="/contact">Contact us</a>
+          </li>
+          <li class="nav-item <% if (title === 'Contact Us') { %>active<% } %>">
+            <a class="nav-link" href="/contact" style="color: #aaa;font-size: 1.3rem">Contact us</a>
+          </li>
+        </ul>
+        <div class="my-2 my-lg-0">
+          <ul class="navbar-nav mr-auto">
+          <% if (isAuthenticatedd)
+          { %>
+            <li class="nav-item <% if (title === 'Register') { %>active<% } %>">
+              <a class="nav-link" href="/user-profile/<%= user.username %>" style="color: #aaa;font-size: 1.3rem">My Profile</a>
+            </li>
+            <li class="nav-item <% if (title === 'Log In') { %>active<% } %>">
+              <a class="nav-link" href="/logout" style="color: #aaa;font-size: 1.3rem">Log Out</a>
+            </li>
 
-    </div>
-    <div class="nav-contents-right">
+            <% } else{ %> 
+            <li class="nav-item <% if (title === 'Register') { %>active<% } %>">
+              <a class="nav-link" href="/Register" style="color: #aaa;font-size: 1.3rem">Register</a>
+            </li>
+            <li class="nav-item <% if (title === 'Log In') { %>active<% } %>">
+              <a class="nav-link" href="/login" style="color: #aaa;font-size: 1.3rem">Log In</a>
+            </li>
+            <% }%>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-    <% if (isAuthenticatedd){ %>
-
-        <a href="/user-profile/<%= user.username %>">My Profile</a>
-        <!-- <a href="'/user-profile/'+ user.username">My Profile</a> -->
-        <a href="/logout">Log Out</a>
-           
-    <% } else{ %> 
-
-        <a href="/Register">Register</a>
-        <a href="/login">Log In</a>
-
-    <% }%>
-
-    </div>
-
-</nav>
 
 <body>
     <main>
