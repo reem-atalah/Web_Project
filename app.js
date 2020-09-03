@@ -15,15 +15,15 @@ const multer = require('multer');
 const upload = require('express-fileupload');
 const app = express();
 require('dotenv/config');
-const port = process.env.PORT || 8080;
+const port = 8080;
 
 
-// mongoose.connect('mongodb://localhost/student_activity', { useNewUrlParser: true, useUnifiedTopology: true });
-// const db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'connection error: '));
-// db.once('open', () => {
-//     console.log('connected to DB');
-// });
+mongoose.connect('mongodb://localhost/student_activity', { useNewUrlParser: true, useUnifiedTopology: true });
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error: '));
+db.once('open', () => {
+    console.log('connected to DB');
+});
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -107,21 +107,22 @@ app.use('/edit-profile', require('./routes/edit-profile'));
 app.use('/logout', require('./routes/logout'));
 app.use('/materials', require('./routes/materials'));
 
-app.use('/deleteAll', async(req, res) => {
-    User.deleteMany({}, err => {
-        if (err) return console.log(err);
-    });
-    // return res.render('Home', {
-    //     title: 'Home',
-    //     css: 'style',
-    //     RegisterOrProfileLink: 'Register',
-    //     RegisterOrProfile: 'Register',
-    //     loginOrOut: 'login',
-    //     log:'Log In',
-    //     message : req.flash('message')
-    // })
-    return res.redirect('/');
-});
+//delete all database
+// app.use('/deleteAll', async(req, res) => {
+//     User.deleteMany({}, err => {
+//         if (err) return console.log(err);
+//     });
+//     // return res.render('Home', {
+//     //     title: 'Home',
+//     //     css: 'style',
+//     //     RegisterOrProfileLink: 'Register',
+//     //     RegisterOrProfile: 'Register',
+//     //     loginOrOut: 'login',
+//     //     log:'Log In',
+//     //     message : req.flash('message')
+//     // })
+//     return res.redirect('/');
+// });
 
 
 app.listen(port, err => {

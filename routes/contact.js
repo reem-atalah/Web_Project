@@ -1,4 +1,4 @@
-//process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 const router = require('express').Router();
 const nodemailer = require('nodemailer');
 const checkFunc = require('../functions');
@@ -28,8 +28,10 @@ const transporter = nodemailer.createTransport({
 router.post('/', async(req, res) => {
     try {
         await transporter.sendMail({
-            from: `${req.body.username}👻< ${req.body.username}>`, // sender address
-            to: "mennaahmedali77@gmail.com, reem.atalah1@gmail.com", // list of receivers
+            from: `${req.body.email}`,
+            to: `C-Craft < ${req.body.username}>`,
+            // from: `${req.body.username} < ${req.body.username}>`, // sender address
+            // to: "mennaahmedali77@gmail.com, reem.atalah1@gmail.com", // list of receivers
             subject: `${req.body.subject}`, // Subject line
             //html: "<b>New Contact Message :</b>", // html body
             text: `${req.body.message}` // plain text body
