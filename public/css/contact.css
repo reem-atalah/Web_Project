@@ -113,7 +113,10 @@ textarea:hover {
     /* transition: 0.3s; */
 }
 
-
+#btn:hover {
+    color: rgb(165, 30, 255);
+    background-color: white;
+}
 /* button:hover {
     color: rgb(165, 30, 255);
     background-color: white;
