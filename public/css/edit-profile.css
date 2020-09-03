@@ -8,6 +8,7 @@
     background-image: url(../images/bradcam.png);
     background-repeat: none;
     background-size: cover;
+    height: fit-content;
 }
 
 .navbar img {
@@ -51,11 +52,8 @@
     border-radius: 5px;
 }
 
-.btn {
+#btnn {
     margin: 3%;
-    /* position: absolute; */
-    /* top: 53%;
-    left: 70%; */
     transform: translate(-35%, -50%);
     background: linear-gradient(to bottom, #3366cc 0%, #990099 100%);
 }
@@ -100,6 +98,9 @@ ul {
 
 #input_name,
 #input_bio {
+    outline: none;
+    border-radius: 5px;
+    border: none;
     margin-left: 3px;
     transition: 0.3s;
     border-bottom-color: rgb(111, 117, 117);

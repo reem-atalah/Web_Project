@@ -1,5 +1,5 @@
 <%- include("layouts/header") %>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
 </head>
 <style>
     ::placeholder {
@@ -34,27 +34,32 @@
             <img class="card-img-left" src="/images/<%= user.gender %>.png" style="height:135px;width:130px;border-radius:50%" >
             <% } %>
             <!-- <i id="camera" class="fa fa-camera" aria-hidden="true"style="font-size:30px;"></i> <br> -->
-            <div id="file"class="file-field input-field">
-                <div class="btn grey">
-                    <span>Choose the image</span>
-                <input class="file-image"name='userImg' id="userImg"type="file" >
-                </div>
-                <div class="file-path-wrapper">
-                    <input name="input_image"id="input_image" class="file-path validate" type="text" 
-                    placeholder="File Path">
-                  </div>
-            </div>
+            
         </div>
-        
+        <div id="file"class="file-field input-field" style="display:flex; flex-direction:column; align-items:center; margin:10px 0 15px;">
+                <div class="btn" style="position:relative;
+    background: linear-gradient(to bottom, #3366cc 0%, #990099 100%);">
+                    <span></span>
+                   <input class="file-image"name='userImg' id="userImg"type="file"  >
+                </div>
+
+        </div>
             <div class="card-bodyy">
              
                 <ul>
                     <li class="card-text">
-                         <input type="text" name="input_name" id="input_name"class="card-title" placeholder="<%= user.username %>" autocomplete="off">
-                        <input type="text"name="input_bio"id="input_bio" placeholder="<%= user.bio %>"autocomplete="off">
+                        <ul>
+                        <h5>Name:</h5>
+                            <input type="text" name="input_name" id="input_name"class="card-title" placeholder="<%= user.username %>" autocomplete="off">
+                        </ul> 
+                        <h5>Bio:</h5>
+                        <ul>
+                           <input type="text"name="input_bio"id="input_bio" placeholder="<%= user.bio %>"autocomplete="off"> 
+                        </ul>
+                        
                     </li>
-                    
-            <button id="apply"type="submit" class="btn btn-primary" value="upload">Apply Changes</button>
+                    <br>
+                 <button id="apply"type="submit" class="btn btn-primary" value="upload">Apply Changes</button>
                 </ul>
             </div>
       </form>

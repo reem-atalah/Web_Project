@@ -5,10 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
 
-   <link rel="stylesheet" href="/css/<%= css %>.css">
+    <link rel="stylesheet" href="/css/<%= css %>.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="icon" href="/images/logo7-removebg-preview.png">
     <title><%= title %></title>
@@ -25,7 +26,7 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item <% if (title === 'Our Courses') { %>active<% } %>">
             <div class="dropdown show" style="padding-left:0px;">
-         <a class="btn btn-secondary dropdown-toggle" style="cursor: pointer;
+         <a id="bttn"class="btn btn-secondary dropdown-toggle" style="cursor: pointer;
          color: #aaa;
          font-size: 1.3rem;background-color:rgb(252, 252, 252, 0); border:none; outline:none;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          Our Courses
