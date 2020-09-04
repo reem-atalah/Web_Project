@@ -24,7 +24,7 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-// // POST contact us page
+// POST contact us page
 router.post('/', async(req, res) => {
     try {
         await transporter.sendMail({
