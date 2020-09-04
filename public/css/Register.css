@@ -5,9 +5,12 @@
 }
 
 .navbar {
+    position: fixed;
     background-image: url(../images/bradcam.png);
     background-repeat: none;
     background-size: cover;
+    width: 100%;
+    z-index: 1;
 }
 
 .navbar img {
@@ -27,7 +30,7 @@
 
 .reg {
     padding: 40px 25px 40px 25px;
-    margin-top: 10%;
+    margin-top: 12%;
     margin-bottom: 5%;
     height: fit-content;
     /* background-color: rgba(45, 6, 66, 0.7); */
@@ -116,15 +119,13 @@ label {
 .password span,
 .email span,
 .conf-password span,
-.username-div span 
- {
+.username-div span {
     height: 40px;
     position: absolute;
     bottom: 7px;
     left: 5px;
     transition: all 0.3s ease;
 }
-
 
 
 /* #username:focus + .label-name .span-name,

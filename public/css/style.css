@@ -5,9 +5,12 @@
 }
 
 .navbar {
+    position: fixed;
     background-image: url(../images/bradcam.png);
     background-repeat: none;
     background-size: cover;
+    width: 100%;
+    z-index: 1;
 }
 
 .navbar img {
@@ -16,6 +19,7 @@
 }
 
 .sub_container1 {
+    padding: 6vh 3vh 3vh 3vh;
     height: 80vh;
     background-image: url(../images/bradcam2.png);
     background-position: center;

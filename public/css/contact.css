@@ -5,9 +5,12 @@
 }
 
 .navbar {
+    position: fixed;
     background-image: url(../images/bradcam.png);
     background-repeat: none;
     background-size: cover;
+    width: 100%;
+    z-index: 1;
 }
 
 .navbar img {
@@ -42,7 +45,7 @@ div {
 
 .cont {
     padding: 25px 25px 25px 25px;
-    margin-top: 5%;
+    margin-top: 12%;
     margin-bottom: 5%;
     height: fit-content;
     /* background-color: rgba(45, 6, 66, 0.7); */
@@ -117,6 +120,8 @@ textarea:hover {
     color: rgb(165, 30, 255);
     background-color: white;
 }
+
+
 /* button:hover {
     color: rgb(165, 30, 255);
     background-color: white;
