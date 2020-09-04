@@ -22,7 +22,8 @@
     background-image: url("../images/bradcam2.png");
     /* background-image: url(../images/contacts.jpg); */
     background-size: cover;
-    height: 100vh;
+    padding: 10% 0 5%;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
